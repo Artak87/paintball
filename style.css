@@ -1,4 +1,10 @@
 .time-list {
 
     list-style-type: none;
+    width: 100%;
+    display: inline-block;
+}
+
+.time-list li {
+    width: 50%;
 }

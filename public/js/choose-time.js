@@ -8,9 +8,7 @@ jQuery(document).ready(function ($) {
             var t = element.text();
             // alert(t);
             $("#startTime").val(t);
-        $(".time-list li span").click(function () {
-            $(this).removeClass("badge-primary").addClass("badge-success");
-        });
+
 
     });
 

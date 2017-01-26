@@ -7,11 +7,12 @@ jQuery(document).ready(function ($) {
             element.removeClass("badge-primary").addClass("badge-success");
         } else {
             element.removeClass("badge-success").addClass("badge-primary");
-        }
-        //console.log(element);
             var t = element.text();
             // alert(t);
             $("#startTime").val(t);
+        }
+        //console.log(element);
+
 
 
     });

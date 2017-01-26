@@ -3,7 +3,11 @@ jQuery(document).ready(function ($) {
     $(".time-list li span").click(function () {
         var element = $(this);
 
-        element.removeClass("badge-success").addClass("badge-primary");
+        if (element.hasClass("badge-primary")) {
+            element.removeClass("badge-primary").addClass("badge-success");
+        } else {
+            element.removeClass("badge-success").addClass("badge-primary");
+        }
         //console.log(element);
             var t = element.text();
             // alert(t);

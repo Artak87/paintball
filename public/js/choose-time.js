@@ -9,6 +9,7 @@ jQuery(document).ready(function ($) {
             element.removeClass("badge-success").addClass("badge-primary");
             var t = element.text();
             $("#startTime").val(t);
+            $("#startTime").val("");
         }
         //console.log(element);
     });

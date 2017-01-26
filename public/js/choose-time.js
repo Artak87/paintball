@@ -20,13 +20,25 @@ jQuery(document).ready(function ($) {
         $("#duration").val(duration);
     });
 
-    function calcualtePrice(playersNumber, duration) {
+    function calcualtePrice1(playersNumber, duration) {
         var x, y, z;
         x = playersNumber;
         y = duration;
         z = x * (y * 20);
         return z;
     }
+
+    function calcualtePrice() {
+        var duration = $("#duration").val();
+        var playersNumber = $("#playersNumber").val();
+        return playersNumber * (duration * 20);
+    }
+
+    $("#button-price").click(function () {
+        calcualtePrice();
+    });
+
+    console.log($("#playersNumber").val());
 
 
     $("#show").click(function () {

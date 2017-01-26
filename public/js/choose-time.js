@@ -8,13 +8,9 @@ jQuery(document).ready(function ($) {
         } else {
             element.removeClass("badge-success").addClass("badge-primary");
             var t = element.text();
-            // alert(t);
             $("#startTime").val(t);
         }
         //console.log(element);
-
-
-
     });
 
     $("#show").click(function () {

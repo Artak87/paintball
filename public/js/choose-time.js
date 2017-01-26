@@ -5,11 +5,12 @@ jQuery(document).ready(function ($) {
 
         if (element.hasClass("badge-primary")) {
             element.removeClass("badge-primary").addClass("badge-success");
+            $("#startTime").val("");
         } else {
             element.removeClass("badge-success").addClass("badge-primary");
             var t = element.text();
             $("#startTime").val(t);
-            $("#startTime").val("");
+
         }
         //console.log(element);
     });

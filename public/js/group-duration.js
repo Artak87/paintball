@@ -26,10 +26,10 @@
         });
 
         plus.on("mousedown", function () {
-            setValue(++value);
+            setValue(value+5);
             to = setTimeout(function () {
                 int = setInterval(function () {
-                    setValue(++value);
+                    setValue(value+5);
                 }, 75);
             }, 500);
         }).on("mouseup mouseleave", function () {
@@ -37,10 +37,10 @@
             clearInterval(int);
         });
         minus.on("mousedown", function () {
-            setValue(--value);
+            setValue(value-5);
             to = setTimeout(function () {
                 int = setInterval(function () {
-                    setValue(--value);
+                    setValue(value-5);
                 }, 75);
             }, 500);
         }).on("mouseup mouseleave", function () {
@@ -51,6 +51,7 @@
 
         function setValue(val) {
             value = parseInt(val);
+
             if (isNaN(value)) {
                 value = 0;
             }
@@ -79,9 +80,7 @@
             var num = 0;
 
             var arr = time.split(" ");
-            if (arr[1] === "pm") {
-                num += 12 * 60;
-            }
+
             var arr2 = arr[0].split(":");
 
             var hour = parseInt(arr2[0]);

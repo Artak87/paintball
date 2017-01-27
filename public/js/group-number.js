@@ -1,8 +1,9 @@
 (function ( $ ) {
 
     $.fn.groupNumber = function(options) {
+        options = options || {};
         var el = this;
-        var settings = $.extend(el.data(), options || {});
+        var settings = $.extend({}, el.data(), options);
         var value;
 
         var input = el.find("input");
@@ -24,10 +25,10 @@
         });
 
         plus.on("mousedown", function () {
-            setValue(++value);
+            setValue(value+1);
             to = setTimeout(function () {
                 int = setInterval(function () {
-                    setValue(++value);
+                    setValue(value+1);
                 }, 75);
             }, 500);
         }).on("mouseup mouseleave", function () {
@@ -35,10 +36,10 @@
             clearInterval(int);
         });
         minus.on("mousedown", function () {
-            setValue(--value);
+            setValue(value-1);
             to = setTimeout(function () {
                 int = setInterval(function () {
-                    setValue(--value);
+                    setValue(value-1);
                 }, 75);
             }, 500);
         }).on("mouseup mouseleave", function () {
@@ -69,6 +70,10 @@
             el.data("value", value);
             input.val(value);
         }
+
+        this.getValue = function() {
+            return value;
+        };
 
         return this;
     };

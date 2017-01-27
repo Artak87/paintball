@@ -1,8 +1,11 @@
 (function ($) {
 
     $.fn.groupDuration = function (options) {
+        options = options || {};
         var el = this;
-        var settings = $.extend(el.data(), options || {});
+        var settings = $.extend({
+            step: 1
+        }, el.data(), options);
         if(settings.default !== null) settings.default = strToValue(settings.default);
         if(settings.min !== null) settings.min = strToValue(settings.min);
         if(settings.max !== null) settings.max = strToValue(settings.max);
@@ -21,15 +24,17 @@
         }
         setValue(strToValue(input.val()));
 
-        input.on("change focusout blur", function () {
-            setValue(strToValue($(this).val()));
+        input.on("change", function () {
+            setValue(strToValue(input.val()));
         });
 
         plus.on("mousedown", function () {
-            setValue(value+5);
+            setValue(strToValue(input.val()));
+
+            setValue(value + settings.step);
             to = setTimeout(function () {
                 int = setInterval(function () {
-                    setValue(value+5);
+                    setValue(value + settings.step);
                 }, 75);
             }, 500);
         }).on("mouseup mouseleave", function () {
@@ -37,10 +42,12 @@
             clearInterval(int);
         });
         minus.on("mousedown", function () {
-            setValue(value-5);
+            setValue(strToValue(input.val()));
+
+            setValue(value - settings.step);
             to = setTimeout(function () {
                 int = setInterval(function () {
-                    setValue(value-5);
+                    setValue(value - settings.step);
                 }, 75);
             }, 500);
         }).on("mouseup mouseleave", function () {
@@ -71,6 +78,7 @@
             el.data("value", value);
             el.data("value-time", valueToTime(value));
             input.val(valueToTime(value));
+            el.trigger("change");
         }
 
         function strToValue(time) {
@@ -79,12 +87,16 @@
             }
             var num = 0;
 
-            var arr = time.split(" ");
+            var arr = time.split(":");
 
-            var arr2 = arr[0].split(":");
-
-            var hour = parseInt(arr2[0]);
-            var minute = parseInt(arr2[1]);
+            var hour = 0;
+            var minute = 0;
+            if (arr.length == 2) {
+                hour = parseInt(arr[0]);
+                minute = parseInt(arr[1]);
+            } else {
+                hour = parseInt(time);
+            }
 
             num += hour * 60 + minute;
 
@@ -105,6 +117,11 @@
             return hour + ":" + minute;
         }
 
-        return this;
+        el.getValue = function() {
+            return value;
+        };
+
+
+        return el;
     };
 }(jQuery));

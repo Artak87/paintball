@@ -1,8 +1,28 @@
 jQuery(document).ready(function ($) {
 
-    $(".group-number").groupNumber();
-    $(".group-number-time").groupNumberTime();
-    $(".group-duration").groupDuration();
+    var playersNumberElement = $(".group-number").groupNumber();
+    var startTimeElement = $(".group-number-time").groupNumberTime();
+    var durationElement = $(".group-duration").groupDuration();
+    var priceElement = $("#price");
+
+    durationElement.on("change", calculatePrice);
+
+    function calculatePrice() {
+        var startTime = startTimeElement.getValue();
+        var playersNumber = playersNumberElement.getValue();
+        var duration = durationElement.getValue();
+
+        var price = playersNumber * duration * (1/6) + 10;
+        price = Math.round(price);
+        priceElement.text("$" + price);
+    }
+
+
+
+
+
+
+
 
     $(".time-list li span").click(function () {
         var element = $(this);
@@ -26,7 +46,7 @@ jQuery(document).ready(function ($) {
         calculatePrice();
     });
 
-    function calculatePrice() {
+    function _calculatePrice() {
         var duration = parseInt($("#duration").val());
         var playersNumber = parseInt($("#playersNumber").val()) ;
 

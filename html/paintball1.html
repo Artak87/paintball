@@ -47,12 +47,18 @@
     </div>
 
     <div class="row">
-        <div class="col-sm-7">
+        <div class="col-md-8">
 
             <form>
 
+                <div class="button-show-hide pull-right">
+                    <span class="badge badge-default" id="show"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                    <span class="badge badge-default" id="hide"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                </div>
                 <fieldset class="form-group">
+
                     <legend>Contact Information</legend>
+
                     <div class="contactInformationGroup">
                         <div class="form-group row">
                             <label for="fullname" class="col-md-3 col-form-label">Name</label>
@@ -82,9 +88,9 @@
                 <fieldset class="form-group">
                     <legend>Time Information</legend>
                     <div class="form-group row">
-                        <label for="playersNumber" class="col-sm-5 col-md-4 col-form-label">Number of Players</label>
+                        <label for="playersNumber" class="col-sm-6 col-md-5 col-form-label">Number of Players</label>
 
-                        <div class="col-sm-5 col-md-4">
+                        <div class="col-sm-6 col-md-5">
 
 
                             <div class="input-group group-number" role="group" data-default="8" data-min="2" data-max="50">
@@ -95,13 +101,12 @@
 
 
                         </div>
-                        <div class="col-sm-1 col-md-4"></div>
                     </div>
 
                     <div class="form-group row">
-                        <label for="startTime" class="col-sm-5 col-md-4 col-form-label">Time start</label>
+                        <label for="startTime" class="col-sm-6 col-md-5 col-form-label">Time start</label>
 
-                        <div class="col-sm-5 col-md-4">
+                        <div class="col-sm-6 col-md-5">
 
 
                             <div class="input-group group-number-time" role="group" data-default="8:00 am" data-min="8:00 am" data-max="6:00 pm">
@@ -111,39 +116,40 @@
                             </div>
 
                         </div>
-                        <div class="col-sm-1 col-md-4"></div>
-
                     </div>
 
                     <div class="form-group row">
-                        <label for="duration" class="col-sm-5 col-md-4 col-form-label">Duration</label>
+                        <label for="duration" class="col-sm-6 col-md-5 col-form-label">Duration</label>
 
-                        <div class="col-sm-5 col-md-4">
+                        <div class="col-sm-6 col-md-5">
 
-                            <div class="input-group group-duration" role="group" data-default="0:00" data-min="0:00" data-max="12:00">
+                            <div class="input-group group-duration" role="group" data-default="0:00" data-min="0:00" data-max="12:00" data-step="10">
                                 <button type="button" class="btn input-group-addon"><i class="fa fa-minus" aria-hidden="true"></i></button>
                                 <input class="form-control" type="text" id="duration" name="duration">
                                 <button type="button" class="btn input-group-addon"><i class="fa fa-plus" aria-hidden="true"></i></button>
                             </div>
 
                         </div>
-                        <div class="col-sm-1 col-md-4"></div>
                     </div>
 
-                    <h4 class="price" type="text" id="priceh4"></h4>
+                    <div class="form-group row">
+                        <label for="price" class="col-sm-6 col-md-5 col-form-label">Price</label>
+
+                        <div class="col-sm-6 col-md-5">
+
+                            <h4 class="price" type="text" id="price">$0</h4>
+
+                        </div>
+                    </div>
+
+
 
                 </fieldset>
 
             </form>
 
         </div>
-        <div class="col-sm-1">
-            <div class="button-show-hide">
-                <span class="badge badge-default" id="show"><i class="fa fa-plus" aria-hidden="true"></i></span>
-                <span class="badge badge-default" id="hide"><i class="fa fa-minus" aria-hidden="true"></i></span>
-            </div>
-        </div>
-        <div class="col-sm-4">
+        <div class="col-md-4">
             <ul class="time-list">
                 <li><span class="badge badge-success" data-duration="30"> 8:00 am</span></li>
                 <li><span class="badge badge-success" data-duration="30"> 8:30 am</span></li>

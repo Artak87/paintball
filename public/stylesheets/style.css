@@ -1,6 +1,7 @@
 .time-list {
     width: 100%;
     font-size: 0;
+    padding: 0;
 }
 
 .time-list li {

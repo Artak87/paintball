@@ -2,7 +2,7 @@
 
     $.fn.groupNumberTime = function (options) {
         var el = this;
-        var settings = $.extend(el.data(), options || {});
+        var settings = $.extend({}, el.data(), options);
         if(settings.default !== null) settings.default = strToValue(settings.default);
         if(settings.min !== null) settings.min = strToValue(settings.min);
         if(settings.max !== null) settings.max = strToValue(settings.max);
@@ -26,10 +26,10 @@
         });
 
         plus.on("mousedown", function () {
-            setValue(++value);
+            setValue(value+1);
             to = setTimeout(function () {
                 int = setInterval(function () {
-                    setValue(++value);
+                    setValue(value+1);
                 }, 75);
             }, 500);
         }).on("mouseup mouseleave", function () {
@@ -37,10 +37,10 @@
             clearInterval(int);
         });
         minus.on("mousedown", function () {
-            setValue(--value);
+            setValue(value-1);
             to = setTimeout(function () {
                 int = setInterval(function () {
-                    setValue(--value);
+                    setValue(value-1);
                 }, 75);
             }, 500);
         }).on("mouseup mouseleave", function () {
@@ -107,6 +107,10 @@
             }
             return hour + ":" + minute + m;
         }
+
+        this.getValue = function() {
+            return value;
+        };
 
         return this;
     };

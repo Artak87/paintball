@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link href="../public/lib/bootstrap/css/bootstrap.css" rel="stylesheet">
-    <link rel="stylesheet" href="../public/stylesheets/style.css">
+    <link href="../public/lib/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="../public/stylesheets/style.css" rel="stylesheet" >
+
 
 </head>
 <body>
@@ -83,7 +85,15 @@
                         <label for="playersNumber" class="col-md-3 col-form-label">Number of Players</label>
 
                         <div class="col-md-3">
-                            <input class="form-control" type="number" id="playersNumber" name="playersNumber">
+
+
+                            <div class="input-group group-number" role="group" data-default="8" data-min="2" data-max="50">
+                                <button type="button" class="btn input-group-addon"><i class="fa fa-minus" aria-hidden="true"></i></button>
+                                <input class="form-control" type="text" id="playersNumber" name="playersNumber">
+                                <button type="button" class="btn input-group-addon"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                            </div>
+
+
                         </div>
                         <div class="col-md-6"></div>
                     </div>
@@ -108,8 +118,8 @@
                         </div>
                         <div class="col-md-6"></div>
                     </div>
-                    <h4 class="price" type="text">()</h4>
-                    <button type="button" class="btn btn-info" id="button-price">Info</button>
+
+                    <h4 class="price" type="text" id="priceh4"></h4>
 
                 </fieldset>
 
@@ -118,38 +128,38 @@
         </div>
         <div class="col-sm-1">
             <div class="button-show-hide">
-                <span class="badge badge-default" id="show">+</span>
-                <span class="badge badge-default" id="hide">-</span>
+                <span class="badge badge-default" id="show"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                <span class="badge badge-default" id="hide"><i class="fa fa-minus" aria-hidden="true"></i></span>
             </div>
         </div>
         <div class="col-sm-4">
             <ul class="time-list">
-                <li><span class="badge badge-success"> 8:00 am</span></li>
-                <li><span class="badge badge-success"> 8:30 am</span></li>
-                <li><span class="badge badge-success"> 9:00 am</span></li>
-                <li><span class="badge badge-success"> 9:30 am</span></li>
-                <li><span class="badge badge-success">10:00 am</span></li>
-                <li><span class="badge badge-success">10:30 am</span></li>
-                <li><span class="badge badge-success">11:00 am</span></li>
-                <li><span class="badge badge-success">11:30 am</span></li>
-                <li><span class="badge badge-success">12:00 pm</span></li>
-                <li><span class="badge badge-success">12:30 pm</span></li>
-                <li><span class="badge badge-success">10:00 pm</span></li>
-                <li><span class="badge badge-success">10:30 pm</span></li>
-                <li><span class="badge badge-success">12:00 pm</span></li>
-                <li><span class="badge badge-success">12:30 pm</span></li>
-                <li><span class="badge badge-success"> 1:00 pm</span></li>
-                <li><span class="badge badge-success"> 1:30 pm</span></li>
-                <li><span class="badge badge-success"> 2:00 pm</span></li>
-                <li><span class="badge badge-success"> 2:30 pm</span></li>
-                <li><span class="badge badge-success"> 3:00 pm</span></li>
-                <li><span class="badge badge-success"> 3:30 pm</span></li>
-                <li><span class="badge badge-success"> 4:00 pm</span></li>
-                <li><span class="badge badge-success"> 4:30 pm</span></li>
-                <li><span class="badge badge-success"> 5:00 pm</span></li>
-                <li><span class="badge badge-success"> 5:30 pm</span></li>
-                <li><span class="badge badge-success"> 6:00 pm</span></li>
-                <li><span class="badge badge-success"> 6:30 pm</span></li>
+                <li><span class="badge badge-success" data-duration="30"> 8:00 am</span></li>
+                <li><span class="badge badge-success" data-duration="30"> 8:30 am</span></li>
+                <li><span class="badge badge-success" data-duration="30"> 9:00 am</span></li>
+                <li><span class="badge badge-success" data-duration="30"> 9:30 am</span></li>
+                <li><span class="badge badge-success" data-duration="30">10:00 am</span></li>
+                <li><span class="badge badge-success" data-duration="30">10:30 am</span></li>
+                <li><span class="badge badge-success" data-duration="30">11:00 am</span></li>
+                <li><span class="badge badge-success" data-duration="30">11:30 am</span></li>
+                <li><span class="badge badge-success" data-duration="30">12:00 pm</span></li>
+                <li><span class="badge badge-success" data-duration="30">12:30 pm</span></li>
+                <li><span class="badge badge-success" data-duration="30">10:00 pm</span></li>
+                <li><span class="badge badge-success" data-duration="30">10:30 pm</span></li>
+                <li><span class="badge badge-success" data-duration="30">12:00 pm</span></li>
+                <li><span class="badge badge-success" data-duration="30">12:30 pm</span></li>
+                <li><span class="badge badge-success" data-duration="30"> 1:00 pm</span></li>
+                <li><span class="badge badge-success" data-duration="30"> 1:30 pm</span></li>
+                <li><span class="badge badge-success" data-duration="30"> 2:00 pm</span></li>
+                <li><span class="badge badge-success" data-duration="30"> 2:30 pm</span></li>
+                <li><span class="badge badge-success" data-duration="30"> 3:00 pm</span></li>
+                <li><span class="badge badge-success" data-duration="30"> 3:30 pm</span></li>
+                <li><span class="badge badge-success" data-duration="30"> 4:00 pm</span></li>
+                <li><span class="badge badge-success" data-duration="30"> 4:30 pm</span></li>
+                <li><span class="badge badge-success" data-duration="30"> 5:00 pm</span></li>
+                <li><span class="badge badge-success" data-duration="30"> 5:30 pm</span></li>
+                <li><span class="badge badge-success" data-duration="30"> 6:00 pm</span></li>
+                <li><span class="badge badge-success" data-duration="30"> 6:30 pm</span></li>
             </ul>
         </div>
     </div>
@@ -159,6 +169,8 @@
 <script src="../public/lib/tether/js/tether.js"></script>
 <script src="../public/lib/bootstrap/js/bootstrap.js"></script>
 
+
+<script src="../public/js/group-number.js"></script>
 <script src="../public/js/choose-time.js"></script>
 
 </body>

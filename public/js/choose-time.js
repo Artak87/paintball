@@ -1,44 +1,36 @@
 jQuery(document).ready(function ($) {
 
-    var duration = 0;
+    $(".group-number").groupNumber();
 
     $(".time-list li span").click(function () {
         var element = $(this);
+        var duration = getDuration();
 
         if (element.hasClass("badge-primary")) {
             element.removeClass("badge-primary").addClass("badge-success");
+            duration -= element.data("duration");
             $("#startTime").val("");
-            duration -= 0.5;
+
         } else {
             element.removeClass("badge-success").addClass("badge-primary");
             var t = element.text();
             $("#startTime").val(t);
-            duration += 0.5;
+            duration += element.data("duration");
 
         }
-        //console.log(element);
-        $("#duration").val(duration);
+
+
+        setDuration(duration);
+        calculatePrice();
     });
 
-    function calcualtePrice1(playersNumber, duration) {
-        var x, y, z;
-        x = playersNumber;
-        y = duration;
-        z = x * (y * 20);
-        return z;
+    function calculatePrice() {
+        var duration = parseInt($("#duration").val());
+        var playersNumber = parseInt($("#playersNumber").val()) ;
+
+        var price = playersNumber * (duration * 20);
+
     }
-
-    function calcualtePrice() {
-        var duration = $("#duration").val();
-        var playersNumber = $("#playersNumber").val();
-        return playersNumber * (duration * 20);
-    }
-
-    $("#button-price").click(function () {
-        calcualtePrice();
-    });
-
-    console.log($("#playersNumber").val());
 
 
     $("#show").click(function () {
@@ -49,6 +41,17 @@ jQuery(document).ready(function ($) {
         $(".contactInformationGroup").hide(1000);
     });
 
+    function setDuration(duration) {
+        var hour = parseInt(duration / 60);
+        var minute = parseInt(duration % 60);
+        if (minute < 10) {
+            minute = "0" + minute;
+        }
+        $("#duration").data("duration", duration).val(hour + ":" + minute);
+    }
 
+    function getDuration() {
+        return $("#duration").data("duration") || 0;
+    }
 
 });

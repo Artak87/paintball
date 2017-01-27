@@ -82,9 +82,9 @@
                 <fieldset class="form-group">
                     <legend>Time Information</legend>
                     <div class="form-group row">
-                        <label for="playersNumber" class="col-md-3 col-form-label">Number of Players</label>
+                        <label for="playersNumber" class="col-sm-5 col-md-4 col-form-label">Number of Players</label>
 
-                        <div class="col-md-4">
+                        <div class="col-sm-5 col-md-4">
 
 
                             <div class="input-group group-number" role="group" data-default="8" data-min="2" data-max="50">
@@ -95,13 +95,13 @@
 
 
                         </div>
-                        <div class="col-md-5"></div>
+                        <div class="col-sm-1 col-md-4"></div>
                     </div>
 
                     <div class="form-group row">
-                        <label for="startTime" class="col-md-3 col-form-label">Time start</label>
+                        <label for="startTime" class="col-sm-5 col-md-4 col-form-label">Time start</label>
 
-                        <div class="col-md-4">
+                        <div class="col-sm-5 col-md-4">
 
 
                             <div class="input-group group-number-time" role="group" data-default="8:00 am" data-min="8:00 am" data-max="6:00 pm">
@@ -111,18 +111,23 @@
                             </div>
 
                         </div>
-                        <div class="col-md-5"></div>
+                        <div class="col-sm-1 col-md-4"></div>
 
                     </div>
 
                     <div class="form-group row">
-                        <label for="duration" class="col-md-3 col-form-label">Duration</label>
+                        <label for="duration" class="col-sm-5 col-md-4 col-form-label">Duration</label>
 
-                        <div class="col-md-3">
+                        <div class="col-sm-5 col-md-4">
 
-                            <input class="form-control" type="text" id="duration" name="duration">
+                            <div class="input-group group-duration" role="group" data-default="0:00" data-min="0:00" data-max="12:00">
+                                <button type="button" class="btn input-group-addon"><i class="fa fa-minus" aria-hidden="true"></i></button>
+                                <input class="form-control" type="text" id="duration" name="duration">
+                                <button type="button" class="btn input-group-addon"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                            </div>
+
                         </div>
-                        <div class="col-md-6"></div>
+                        <div class="col-sm-1 col-md-4"></div>
                     </div>
 
                     <h4 class="price" type="text" id="priceh4"></h4>
@@ -178,6 +183,7 @@
 
 <script src="../public/js/group-number.js"></script>
 <script src="../public/js/group-number-time.js"></script>
+<script src="../public/js/group-duration.js"></script>
 <script src="../public/js/choose-time.js"></script>
 
 </body>

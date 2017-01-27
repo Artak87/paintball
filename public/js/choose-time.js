@@ -2,6 +2,7 @@ jQuery(document).ready(function ($) {
 
     $(".group-number").groupNumber();
     $(".group-number-time").groupNumberTime();
+    $(".group-duration").groupDuration();
 
     $(".time-list li span").click(function () {
         var element = $(this);

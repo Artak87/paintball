@@ -1,6 +1,7 @@
 jQuery(document).ready(function ($) {
 
     $(".group-number").groupNumber();
+    $(".group-number-time").groupNumberTime();
 
     $(".time-list li span").click(function () {
         var element = $(this);
@@ -34,11 +35,11 @@ jQuery(document).ready(function ($) {
 
 
     $("#show").click(function () {
-        $(".contactInformationGroup").show(1000);
+        $(".contactInformationGroup").show("fast");
     });
 
     $("#hide").click(function () {
-        $(".contactInformationGroup").hide(1000);
+        $(".contactInformationGroup").hide("fast");
     });
 
     function setDuration(duration) {

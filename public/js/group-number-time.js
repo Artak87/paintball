@@ -1,8 +1,11 @@
-(function ( $ ) {
+(function ($) {
 
-    $.fn.groupNumber = function(options) {
+    $.fn.groupNumberTime = function (options) {
         var el = this;
         var settings = $.extend(el.data(), options || {});
+        if(settings.default !== null) settings.default = strToValue(settings.default);
+        if(settings.min !== null) settings.min = strToValue(settings.min);
+        if(settings.max !== null) settings.max = strToValue(settings.max);
         var value;
 
         var input = el.find("input");
@@ -10,17 +13,16 @@
         var minus = el.find("button").first();
 
 
-        var temp = 0; // Initial value to set when clicked
-        var to = null; // Timeout object
-        var int = null; // Interval object
+        var to = null;
+        var int = null;
 
         if (settings.default) {
             input.val(settings.default);
         }
-        setValue(input.val());
+        setValue(strToValue(input.val()));
 
         input.on("change focusout blur", function () {
-            setValue($(this).val());
+            setValue(strToValue($(this).val()));
         });
 
         plus.on("mousedown", function () {
@@ -47,7 +49,6 @@
         });
 
 
-
         function setValue(val) {
             value = parseInt(val);
             if (isNaN(value)) {
@@ -67,10 +68,46 @@
             }
 
             el.data("value", value);
-            input.val(value);
+            el.data("value-time", valueToTime(value));
+            input.val(valueToTime(value));
+        }
+
+        function strToValue(time) {
+            if (!time) {
+                return null;
+            }
+            var num = 0;
+
+            var arr = time.split(" ");
+            if (arr[1] === "pm") {
+                num += 12 * 60;
+            }
+            var arr2 = arr[0].split(":");
+
+            var hour = parseInt(arr2[0]);
+            var minute = parseInt(arr2[1]);
+
+            num += hour * 60 + minute;
+
+            return num;
+        }
+
+        function valueToTime(num) {
+            var hour = Math.floor(num / 60);
+            var minute = num % 60;
+            var m = " am";
+            if (hour >= 12) {
+                if (hour > 12) {
+                    hour %= 12;
+                }
+                m = " pm";
+            }
+            if (minute < 10) {
+                minute = "0" + minute;
+            }
+            return hour + ":" + minute + m;
         }
 
         return this;
     };
-
-}( jQuery ));
+}(jQuery));

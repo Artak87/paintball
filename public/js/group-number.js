@@ -3,7 +3,9 @@
     $.fn.groupNumber = function(options) {
         options = options || {};
         var el = this;
-        var settings = $.extend({}, el.data(), options);
+        var settings = $.extend({
+            step: 1
+        }, el.data(), options);
         var value;
 
         var input = el.find("input");
@@ -19,15 +21,17 @@
         }
         setValue(input.val());
 
-        input.on("change focusout blur", function () {
-            setValue($(this).val());
+        input.on("change", function () {
+            setValue(input.val());
         });
 
         plus.on("mousedown", function () {
-            setValue(value+1);
+            setValue(input.val());
+
+            setValue(value + settings.step);
             to = setTimeout(function () {
                 int = setInterval(function () {
-                    setValue(value+1);
+                    setValue(value+ settings.step);
                 }, 75);
             }, 500);
         }).on("mouseup mouseleave", function () {
@@ -35,10 +39,12 @@
             clearInterval(int);
         });
         minus.on("mousedown", function () {
-            setValue(value-1);
+            setValue(input.val());
+
+            setValue(value - settings.step);
             to = setTimeout(function () {
                 int = setInterval(function () {
-                    setValue(value-1);
+                    setValue(value - settings.step);
                 }, 75);
             }, 500);
         }).on("mouseup mouseleave", function () {
@@ -68,6 +74,7 @@
 
             el.data("value", value);
             input.val(value);
+            el.trigger("change");
         }
 
         el.getValue = function() {

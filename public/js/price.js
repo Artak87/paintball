@@ -33,6 +33,8 @@
             var k = priceForMinute();
             var price = playersNumber * duration * k;
 
+
+
             el.showPrice(price);
         };
 

@@ -8,6 +8,8 @@ jQuery(document).ready(function ($) {
     });
 
     durationElement.on("change", calculatePrice);
+    startTimeElement.on("change", calculatePrice);
+    playersNumberElement.on("change", calculatePrice);
 
     function calculatePrice() {
         var startTime = startTimeElement.getValue();
@@ -16,6 +18,7 @@ jQuery(document).ready(function ($) {
 
         priceElement.calculate(playersNumber, duration, startTime);
     }
+    calculatePrice();
 
 
 

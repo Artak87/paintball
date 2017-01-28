@@ -95,7 +95,7 @@
 
                             <div class="input-group group-number" role="group" data-default="8" data-min="2" data-max="50">
                                 <button type="button" class="btn input-group-addon"><i class="fa fa-minus" aria-hidden="true"></i></button>
-                                <input class="form-control" type="text" id="playersNumber" name="playersNumber">
+                                <input class="form-control" type="text" id="playersNumber" name="playersNumber" autocomplete="off">
                                 <button type="button" class="btn input-group-addon"><i class="fa fa-plus" aria-hidden="true"></i></button>
                             </div>
 
@@ -111,7 +111,7 @@
 
                             <div class="input-group group-number-time" role="group" data-default="8:00 am" data-min="8:00 am" data-max="6:00 pm">
                                 <button type="button" class="btn input-group-addon"><i class="fa fa-minus" aria-hidden="true"></i></button>
-                                <input class="form-control" type="text" id="startTime" name="startTime">
+                                <input class="form-control" type="text" id="startTime" name="startTime" autocomplete="off">
                                 <button type="button" class="btn input-group-addon"><i class="fa fa-plus" aria-hidden="true"></i></button>
                             </div>
 
@@ -125,7 +125,7 @@
 
                             <div class="input-group group-duration" role="group" data-default="0:00" data-min="0:00" data-max="12:00" data-step="10">
                                 <button type="button" class="btn input-group-addon"><i class="fa fa-minus" aria-hidden="true"></i></button>
-                                <input class="form-control" type="text" id="duration" name="duration">
+                                <input class="form-control" type="text" id="duration" name="duration" autocomplete="off">
                                 <button type="button" class="btn input-group-addon"><i class="fa fa-plus" aria-hidden="true"></i></button>
                             </div>
 
@@ -138,8 +138,7 @@
                         <div class="col-sm-6 col-md-5">
 
                             <div class="price" type="text" id="price">
-
-                                <h4><i class="fa fa-dollar"></i> <strong class="price-value"></strong></h4>
+                                <h4><i class="fa fa-dollar"></i> <strong class="price-value" data-default="0.00"></strong></h4>
                             </div>
 
                         </div>

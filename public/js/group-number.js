@@ -11,7 +11,6 @@
         var minus = el.find("button").first();
 
 
-        var temp = 0; // Initial value to set when clicked
         var to = null; // Timeout object
         var int = null; // Interval object
 
@@ -71,11 +70,11 @@
             input.val(value);
         }
 
-        this.getValue = function() {
+        el.getValue = function() {
             return value;
         };
 
-        return this;
+        return el;
     };
 
 }( jQuery ));

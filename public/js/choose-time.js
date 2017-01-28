@@ -3,7 +3,9 @@ jQuery(document).ready(function ($) {
     var playersNumberElement = $(".group-number").groupNumber();
     var startTimeElement = $(".group-number-time").groupNumberTime();
     var durationElement = $(".group-duration").groupDuration();
-    var priceElement = $("#price");
+    var priceElement = $("#price").price({
+        hour: 5
+    });
 
     durationElement.on("change", calculatePrice);
 
@@ -12,9 +14,7 @@ jQuery(document).ready(function ($) {
         var playersNumber = playersNumberElement.getValue();
         var duration = durationElement.getValue();
 
-        var price = playersNumber * duration * (1/6) + 10;
-        price = Math.round(price);
-        priceElement.text("$" + price);
+        priceElement.calculate(playersNumber, duration, startTime);
     }
 
 

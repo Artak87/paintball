@@ -21,8 +21,8 @@
         }
         setValue(strToValue(input.val()));
 
-        input.on("change focusout blur", function () {
-            setValue(strToValue($(this).val()));
+        input.on("change", function () {
+            setValue(strToValue(input.val()));
         });
 
         plus.on("mousedown", function () {
@@ -70,6 +70,7 @@
             el.data("value", value);
             el.data("value-time", valueToTime(value));
             input.val(valueToTime(value));
+            el.trigger("change");
         }
 
         function strToValue(time) {
@@ -108,10 +109,10 @@
             return hour + ":" + minute + m;
         }
 
-        this.getValue = function() {
+        el.getValue = function() {
             return value;
         };
 
-        return this;
+        return el;
     };
 }(jQuery));

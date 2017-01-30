@@ -182,6 +182,12 @@
             </ul>
         </div>
     </div>
+
+    <ul class="pagination"></ul>
+<br>
+    <br>
+    <br>
+
 </div>
 
 <script src="../public/lib/jquery/jquery.js"></script>
@@ -189,11 +195,19 @@
 <script src="../public/lib/bootstrap/js/bootstrap.js"></script>
 
 
-<script src="../public/js/group-number.js"></script>
-<script src="../public/js/group-number-time.js"></script>
-<script src="../public/js/group-duration.js"></script>
-<script src="../public/js/price.js"></script>
+<script src="../public/js/plugin/group-number.js"></script>
+<script src="../public/js/plugin/group-number-time.js"></script>
+<script src="../public/js/plugin/group-duration.js"></script>
+<script src="../public/js/plugin/price.js"></script>
+<script src="../public/js/plugin/pagination.js"></script>
 <script src="../public/js/choose-time.js"></script>
+
+<script>
+    $(function () {
+        var pagination = $(".pagination").pagination();
+        pagination.setTotalCont(45601);
+    })
+</script>
 
 </body>
 </html>

@@ -5,8 +5,7 @@
   "repository": "",
   "author": "",
   "scripts": {
-    "start-server": "node ./bin/www",
-    "start": "webpack-dev-server --hot"
+    "start": "node ./bin/www"
   },
   "dependencies": {
     "body-parser": "^1.16.0",

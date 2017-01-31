@@ -10,7 +10,7 @@ const env = {
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express', env: env });
+  res.render('page/index', { title: 'Express', env: env });
 });
 
 router.get('/login',
@@ -24,12 +24,12 @@ router.get('/logout', function(req, res){
 });
 
 router.get('/callback',
-  passport.authenticate('auth0', {
-    failureRedirect: '/url-if-something-fails',
-  }),
-  function(req, res) {
-    res.redirect(req.session.returnTo || '/user');
-  });
+    passport.authenticate('auth0', {
+        failureRedirect: '/url-if-something-fails',
+    }),
+    function (req, res) {
+        res.redirect(req.session.returnTo || '/user');
+    });
 
 
 module.exports = router;

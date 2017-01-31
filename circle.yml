@@ -1,0 +1,34 @@
+machine:
+  services:
+    - docker
+  node:
+    version: 7.3.0
+  environment:
+    DOCKER_CERT_PATH: .cloud_hero
+    DOCKER_HOST: tcp://swarm3808.chapi.co:8443
+    DOCKER_TLS_VERIFY: 1
+
+#dependencies:
+#  override:
+#    - npm install --unsafe-perm -q
+#    - npm run postinstall
+#    - npm run build
+
+test:
+  override:
+    - echo "ok"
+#    - npm run lint
+
+deployment:
+  gcloud:
+    branch: master
+    commands:
+      - mkdir -p $DOCKER_CERT_PATH
+      - curl -s https://portal.cloudhero.io/bootstrap/O6KF3HXSG3VCQ85Y2VVIE3NCWLHCD846/ca > $DOCKER_CERT_PATH/ca.pem
+      - curl -s https://portal.cloudhero.io/bootstrap/O6KF3HXSG3VCQ85Y2VVIE3NCWLHCD846/cert > $DOCKER_CERT_PATH/cert.pem
+      - curl -s https://portal.cloudhero.io/bootstrap/O6KF3HXSG3VCQ85Y2VVIE3NCWLHCD846/key > $DOCKER_CERT_PATH/key.pem
+      - docker stop paintball
+      - docker rm paintball
+      - docker rmi paintball:v0.1
+      - docker build -t paintball:v0.1 .
+      - docker run --name paintball -p 80:3000 -t paintball:v0.1

@@ -1,0 +1,23 @@
+nav.navbar.navbar-toggleable-md.navbar-light.bg-faded
+    .container
+        button.navbar-toggler.navbar-toggler-right(
+        type='button',
+        data-toggle='collapse',
+        data-target='#navbar',
+        aria-controls='navbar',
+        aria-expanded='false',
+        aria-label='Toggle navigation'
+        )
+            span.navbar-toggler-icon
+        a.navbar-brand(href='#') Logo
+        #navbar.collapse.navbar-collapse
+            ul.navbar-nav.mr-auto.mt-2.mt-md-0
+                li.nav-item.active
+                    a.nav-link(href='#')
+                        | Home
+                        span.sr-only (current)
+                li.nav-item
+                    a.nav-link(href='#') Link
+            ul.navbar-nav.my-2.my-lg-0
+                li.nav-item.active
+                    button.btn.btn-link(type='button') Log in

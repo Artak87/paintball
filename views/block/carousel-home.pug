@@ -1,0 +1,33 @@
+#carouselHome.carousel.slide(data-ride='carousel')
+    ol.carousel-indicators
+        li.active(data-target='#carouselHome', data-slide-to='0')
+        li(data-target='#carouselHome', data-slide-to='1')
+        li(data-target='#carouselHome', data-slide-to='2')
+        li(data-target='#carouselHome', data-slide-to='3')
+    .carousel-inner(role='listbox')
+        .carousel-item.active
+            img.d-block.img-fluid(src='/images/gallery1.jpg', alt='Gallery1 slide')
+            .carousel-caption.d-none.d-md-block
+                h3 Some Text 1
+                p Some Paragraph 1
+        .carousel-item
+            img.d-block.img-fluid(src='/images/gallery2.jpg', alt='Gallery2 slide')
+            .carousel-caption.d-none.d-md-block
+                h3 Some Text 2
+                p Some Paragraph 2
+        .carousel-item
+            img.d-block.img-fluid(src='/images/gallery3.jpg', alt='Gallery3 slide')
+            .carousel-caption.d-none.d-md-block
+                h3 Some Text 3
+                p Some Paragraph 3
+        .carousel-item
+            img.d-block.img-fluid(src='/images/gallery4.jpg', alt='Gallery4 slide')
+            .carousel-caption.d-none.d-md-block
+                h3 Some Text 4
+                p Some Paragraph 4
+    a.carousel-control-prev(href='#carouselHome', role='button', data-slide='prev')
+        span.carousel-control-prev-icon(aria-hidden='true')
+        span.sr-only Previous
+    a.carousel-control-next(href='#carouselHome', role='button', data-slide='next')
+        span.carousel-control-next-icon(aria-hidden='true')
+        span.sr-only Next

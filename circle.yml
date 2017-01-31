@@ -5,7 +5,7 @@ machine:
     version: 7.3.0
   environment:
     DOCKER_CERT_PATH: .cloud_hero
-    DOCKER_HOST: tcp://swarm3541.chapi.co:8443
+    DOCKER_HOST: tcp://swarm3808.chapi.co:8443
     DOCKER_TLS_VERIFY: 1
 
 #dependencies:
@@ -24,9 +24,9 @@ deployment:
     branch: master
     commands:
       - mkdir -p $DOCKER_CERT_PATH
-      - curl -s https://portal.cloudhero.io/bootstrap/CT8120WX6J1X3WW6HC1K58815N8FABEG/ca > $DOCKER_CERT_PATH/ca.pem
-      - curl -s https://portal.cloudhero.io/bootstrap/CT8120WX6J1X3WW6HC1K58815N8FABEG/cert > $DOCKER_CERT_PATH/cert.pem
-      - curl -s https://portal.cloudhero.io/bootstrap/CT8120WX6J1X3WW6HC1K58815N8FABEG/key > $DOCKER_CERT_PATH/key.pem
+      - curl -s https://portal.cloudhero.io/bootstrap/O6KF3HXSG3VCQ85Y2VVIE3NCWLHCD846/ca > $DOCKER_CERT_PATH/ca.pem
+      - curl -s https://portal.cloudhero.io/bootstrap/O6KF3HXSG3VCQ85Y2VVIE3NCWLHCD846/cert > $DOCKER_CERT_PATH/cert.pem
+      - curl -s https://portal.cloudhero.io/bootstrap/O6KF3HXSG3VCQ85Y2VVIE3NCWLHCD846/key > $DOCKER_CERT_PATH/key.pem
       - docker stop paintball
       - docker rm paintball
       - docker rmi paintball:v0.1

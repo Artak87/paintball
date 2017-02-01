@@ -1,0 +1,190 @@
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.navbar-default {
+    background: none;
+    border: none;
+    padding: 40px 0;
+    margin-bottom: 0;
+}
+
+.navbar-default .navbar-brand, .navbar-default .navbar-brand:hover {
+    color: #ffcd55;
+    font-size: 36px;
+    text-transform: uppercase;
+    background: #fff;
+    position: relative;
+    bottom: 13px;
+    padding: 0 30px;
+    font-weight: 300;
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+    margin-top: 60px;
+}
+
+.navbar-default .navbar-brand a {
+    color: #ffcd55;
+    text-decoration: none;
+}
+
+span {
+    color: #3d3d3d;
+}
+
+.navbar-default .navbar-nav > li {
+    margin-right: 68px;
+    padding-bottom: 2px;
+}
+
+.navbar-default .navbar-nav > li:last-child {
+    margin-right: 0;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #858585;
+    font-size: 14px;
+    border: 1px solid transparent;
+    text-transform: uppercase;
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li:hover > a, .navbar-default .navbar-nav > li.active > a, .navbar-default .navbar-nav > li.active > a:hover {
+    background: none;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    border-color: #d9dddd;
+}
+
+ul.dropdown-menu {
+    padding: 0;
+    background: #ffffff;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -o-border-radius: 2px;
+    -ms-border-radius: 2px;
+    border: 1px solid #d9dddd;
+}
+
+ul.dropdown-menu li {
+    border-bottom: 1px solid #d9dddd;
+}
+
+ul.dropdown-menu li:last-child {
+    border-bottom: none;
+}
+
+ul.dropdown-menu > li > a {
+    color: #858585;
+    font-size: 12px;
+    padding: 15px 20px;
+    text-transform: uppercase;
+}
+
+ul.dropdown-menu > li > a:hover {
+    color: #ffcd55;
+    text-decoration: underline;
+    background: #fff;
+}
+
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+    color: #858585;
+    background-color: transparent;
+}
+
+/*Buttons*/
+.btn {
+    font-family: Calibri, sans-serif;
+    text-transform: uppercase;
+    font-weight: 300;
+}
+
+.btn-primary, .btn-primary:focus, .btn-primary:active {
+    background-color: transparent;
+    border-color: #838889;
+    font-size: 14px;
+    font-weight: bold;
+    outline: none;
+    font-family: Calibri, sans-serif;
+    color: #fff;
+    text-transform: none;
+}
+
+.btn-primary:hover {
+    background-color: #ffcd55;
+    border-color: #ffcd55;
+    font-size: 14px;
+    font-weight: bold;
+    outline: none;
+    font-family: Calibri, sans-serif;
+    color: #444c4c;
+}
+
+.btn-success, .btn-success:active, .btn-success:focus {
+    background-color: #fff;
+    border-color: #d3d3d3;
+    color: #7f7f7f;
+    text-transform: none;
+    outline: none;
+    font-size: 14px;
+    width: 120px;
+    height: 40px;
+    line-height: 40px;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.btn-success:hover {
+    background-color: #444b4b;
+    border-color: #444b4b;
+    color: #fff;
+    text-transform: none;
+    font-size: 14px;
+}
+
+footer .btn-primary, footer .btn-primary:focus, footer .btn-primary:active {
+    background-color: #ffcd55;
+    border-color: #ffcd55;
+    color: #444c4c;
+}
+
+footer .btn-primary:hover {
+    background-color: transparent;
+    border-color: #838889;
+    color: #fff;
+}
+
+.btn-info, .btn-info:hover, .btn-info:focus, .btn-info:active {
+    background-color: transparent;
+    border-color: #d3d3d3;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: Calibri, sans-serif;
+    color: #7f7f7f;
+    text-transform: none;
+}
+
+.btn-default, .btn-default:hover, .btn-default:focus {
+    font-size: 18px;
+    color: #fff;
+    border-color: #fff;
+    background: none;
+}
+
+button.btn-primary:focus {
+    outline: none;
+}
+
+.nav-item a:hover {
+    color: #858585;
+    font-size: 14px;
+    border: 1px solid transparent;
+    text-transform: uppercase;
+    border-color: #0f0f0f;
+}
+.navbar {
+    background-color: white;
+}

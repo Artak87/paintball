@@ -1,4 +1,97 @@
-.jumbotron {
-    margin-bottom: 0;
-    margin-top: 100px;
+.dropdown:hover .dropdown-menu {
+    display: block;
 }
+
+.navbar-default {
+    background: none;
+    border: none;
+    padding: 40px 0;
+    margin-bottom: 0;
+}
+
+.navbar-default .navbar-brand, .navbar-default .navbar-brand:hover {
+    color: #ffcd55;
+    font-size: 36px;
+    text-transform: uppercase;
+    background: #fff;
+    position: relative;
+    bottom: 13px;
+    padding: 0 30px;
+    font-weight: 300;
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+    margin-top: 60px;
+}
+
+.navbar-default .navbar-brand a {
+    color: #ffcd55;
+    text-decoration: none;
+}
+
+span {
+    color: #3d3d3d;
+}
+
+.navbar-default .navbar-nav > li {
+    margin-right: 68px;
+    padding-bottom: 2px;
+}
+
+.navbar-default .navbar-nav > li:last-child {
+    margin-right: 0;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #858585;
+    font-size: 14px;
+    border: 1px solid transparent;
+    text-transform: uppercase;
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li:hover > a, .navbar-default .navbar-nav > li.active > a, .navbar-default .navbar-nav > li.active > a:hover {
+    background: none;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    border-color: #d9dddd;
+}
+
+ul.dropdown-menu {
+    padding: 0;
+    background: #ffffff;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -o-border-radius: 2px;
+    -ms-border-radius: 2px;
+    border: 1px solid #d9dddd;
+}
+
+ul.dropdown-menu li {
+    border-bottom: 1px solid #d9dddd;
+}
+
+ul.dropdown-menu li:last-child {
+    border-bottom: none;
+}
+
+ul.dropdown-menu > li > a {
+    color: #858585;
+    font-size: 12px;
+    padding: 15px 20px;
+    text-transform: uppercase;
+}
+
+ul.dropdown-menu > li > a:hover {
+    color: #ffcd55;
+    text-decoration: underline;
+    background: #fff;
+}
+
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+    color: #858585;
+    background-color: transparent;
+}
+

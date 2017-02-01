@@ -4,13 +4,15 @@ html
     title= title
     link(rel='stylesheet', href='/lib/bootstrap/css/bootstrap.min.css')
     link(rel='stylesheet', href='/lib/font-awesome/css/font-awesome.min.css')
+    link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Roboto:400,300,700,100')
+    link(rel='stylesheet', href='/stylesheets/tmp_style.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    include block/nav
+    include block/header
     block before
 
-    .container
-      block content
+
+    block content
 
     script(src="/lib/jquery/jquery.js")
     script(src="/lib/tether/js/tether.js")

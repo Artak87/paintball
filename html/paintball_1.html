@@ -2,45 +2,72 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Paintball</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link href="../public/lib/bootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="../public/lib/font-awesome/css/font-awesome.css" rel="stylesheet">
-    <!--<link href="../public/stylesheets/stylecard.css" rel="stylesheet" >-->
-    <link href="../public/stylesheets/tmp_style.css" rel="stylesheet" >
+    <link href="../public/stylesheets/tmp_style.css" rel="stylesheet">
 </head>
 <body>
-
-
 <header class="main__header">
     <div class="container">
-        <nav class="navbar navbar-toggleable-md navbar-light bg-faded navbar-default" style="display: block">
-
-            <div class="collapse navbar-center navbar-collapse" id="mainnavbar">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active"><a class="nav-link" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">left sidebar</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">right sidebar</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">right page</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">contact us</a></li>
+        <nav class="navbar navbar-default" role="navigation">
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-center navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html">Home</a></li>
+                    <li><a href="left_sidebar.html">left sidebar</a></li>
+                    <li><a href="right_sidebar.html">right sidebar</a></li>
+                    <li><a href="full_width.html">full page</a></li>
+                    <li><a href="contact.html">contact us</a></li>
                 </ul>
             </div>
-
+            <!-- /.navbar-collapse -->
+            <div class="clr"></div>
+            <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#mainnavbar" aria-controls="mainnavbar" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1"><span class="sr-only">Toggle navigation</span> <span
+                        class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button>
                 <h1 class="navbar-brand"><a href="index.html"><span>Paint</span>ball</a></h1>
             </div>
-
         </nav>
     </div>
 </header>
-
-
-
-
+<section class="slider">
+    <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+        <!-- Indicators -->
+        <div class="carousel-inner">
+            <div class="item"><img data-src="../public/images/gallery1.jpg" alt="First slide"
+                                   src="../public/images/gallery1.jpg">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1>Vivamus ultricies volutpat egestas. Donec <span>turpis non eros</span> euismod </h1>
+                        <p>Aliquam sit amet lectus sagittis, feugiat neque dictum, rutrum augue. Integer vel egestas
+                            urna. </p>
+                        <p><a class="btn btn-default" href="#" role="button">more details</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="item active"><img data-src="../public/images/gallery2.jpg" alt="Second slide"
+                                          src="../public/images/gallery2.jpg">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1>Donec <span>volutpat mattis</span> odio. Quisque eros. Nullam malesuada. </h1>
+                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis
+                            eros. </p>
+                        <p><a class="btn btn-default" href="#" role="button">get started</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span
+                class="glyphicon carousel-control-left"></span></a> <a class="right carousel-control" href="#myCarousel"
+                                                                       data-slide="next"><span
+            class="glyphicon carousel-control-right"></span></a></div>
+</section>
+<!--end of sldier section-->
 <section class="main__middle__container">
     <div class="container">
         <div class="row">
@@ -54,25 +81,23 @@
         <div class="container">
             <h2><span>our services</span></h2>
             <div class="row">
-                <div class="col-md-4">
-                    <i class="fa fa-paper-plane-o fa-3x" aria-hidden="true"></i>
+                <div class="col-md-4"><img src="images/icons/ico1.png" alt="icon" class="icon">
                     <h3>CLEAN FLAT & MINIMAL</h3>
-                    <img src="../public/images/gallery3.jpg" alt="image" class="img-rounded img-responsive w-100">
+                    <img src="../public/images/gallery3.jpg" alt="image" class="img-rounded img-responsive">
                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis
                         eros.</p>
                     <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
                 </div>
-                <div class="col-md-4"><i class="fa fa-mobile fa-3x" aria-hidden="true"></i>
+                <div class="col-md-4"><img src="images/icons/ico2.png" alt="icon" class="icon">
                     <h3>FULLY RESPONSIVE</h3>
-                    <img src="../public/images/gallery4.jpg" alt="image" class="img-rounded img-responsive w-100">
+                    <img src="../public/images/gallery4.jpg" alt="image" class="img-rounded img-responsive">
                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis
                         eros.</p>
                     <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
                 </div>
-                <div class="col-md-4"><i class="fa fa-cog fa-3x" aria-hidden="true"></i>
-
+                <div class="col-md-4"><img src="images/icons/ico3.png" alt="icon" class="icon">
                     <h3>EASY TO CUSTOMIZE</h3>
-                    <img src="../public/images/gallery5.jpg" alt="image" class="img-rounded img-responsive w-100">
+                    <img src="../public/images/gallery5.jpg" alt="image" class="img-rounded img-responsive">
                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis
                         eros.</p>
                     <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
@@ -90,7 +115,7 @@
                     <p>
                         <small>Praesent semper mod quis eget mi. Etiam eu ante risus.</small>
                     </p>
-                    <img src="../public/images/gallery6.jpg" class="img-rounded img-responsive w-100" alt="pic1">
+                    <img src="../public/images/gallery6.jpg" class="img-rounded img-responsive" alt="pic1">
                     <div class="clearfix"></div>
                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis
                         eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit,
@@ -103,7 +128,7 @@
                     <p>
                         <small>Praesent semper mod quis eget mi. Etiam eu ante risus.</small>
                     </p>
-                    <img src="../public/images/gallery7.jpg" class="img-rounded img-responsive w-100" alt="pic2">
+                    <img src="../public/images/gallery7.jpg" class="img-rounded img-responsive" alt="pic2">
                     <div class="clearfix"></div>
                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis
                         eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit,
@@ -128,7 +153,6 @@
         </div>
     </div>
 </section>
-
 <footer>
     <div class="container">
         <div class="row">
@@ -169,14 +193,9 @@
                     Fax: (887) 123-4567<br/>
                     <br/>
                 </p>
-                <div class="social__icons">
-                    <a href="#" class="socialicon socialicon-twitter">
-                        <i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i></a>
-                    <a href="#" class="socialicon socialicon-facebook">
-                        <i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i></a>
-                    <a href="#" class="socialicon socialicon-google">
-                        <i class="fa fa-google-plus-square fa-2x" aria-hidden="true"></i></a>
-                </div>
+                <div class="social__icons"><a href="#" class="socialicon socialicon-twitter"></a> <a href="#"
+                                                                                                     class="socialicon socialicon-facebook"></a>
+                    <a href="#" class="socialicon socialicon-google"></a></div>
             </div>
         </div>
     </div>
@@ -186,98 +205,18 @@
 </footer>
 
 
-
-
-
-
-
-<div class="container">
-
-    <div class="row">
-
-        <div class="col-md-3">
-            <!--menu or information about site-->
-        </div>
-
-        <div class="col-md-9">
-            <!--card-->
-            <div class="row">
-                <div class="col-md-8">
-                    <h1>Admin</h1>
-                </div>
-                <div class="col-md-4">
-                    <h5>Time of day</h5>
-                    <span>00:00:00</span>
-                </div>
-            </div>
-            <br>
-            <br>
-            <br>
-
-            <div class="day-on-month">
-                <div class="row">
-                    <div class="col-md-1">
-                    <span class="badge badge-default" id="iconLeft"><i class="fa fa-arrow-left" aria-hidden="true"></i>
-                    </span>
-                    </div>
-                    <div class="col-md-10">
-                        <span>31 January</span>
-                    </div>
-                    <div class="col-md-1">
-                    <span class="badge badge-default" id="iconRight"><i class="fa fa-arrow-right"
-                                                                        aria-hidden="true"></i>
-                    </span>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="information-tables">
-            <div class="row">
-                <div class="col-md-10">
-                    <table class="table">
-                        <thead class="thead-default">
-                        <tr>
-                            <th>#</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Username</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-
-    </div>
-</div>
-
-
 <script src="../public/lib/jquery/jquery.js"></script>
 <script src="../public/lib/tether/js/tether.js"></script>
 <script src="../public/lib/bootstrap/js/bootstrap.js"></script>
 
+
+<script type="text/javascript">
+
+    $('.carousel').carousel({
+        interval: 3500, // in milliseconds
+        pause: 'none' // set to 'true' to pause slider on mouse hover
+    })
+</script>
 </body>
+
 </html>

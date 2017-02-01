@@ -13,6 +13,11 @@ router.get('/', function(req, res, next) {
   res.render('page/index', { title: 'Express', env: env });
 });
 
+router.get('/order', function(req, res, next) {
+    res.render('page/order', { title: 'Order', env: env });
+});
+
+
 router.get('/login',
   function(req, res){
     res.render('login', { env: env });

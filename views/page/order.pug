@@ -4,230 +4,132 @@ block before
 block after
 
 block content
-    header.main__header
-        .container
-            nav.navbar.navbar-default(role='navigation')
-                // Brand and toggle get grouped for better mobile display
-                // Collect the nav links, forms, and other content for toggling
-                .navbar-header
-                    h1.navbar-brand
-                        a(href='index.html') paintball
-                    button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1,#bs-example-navbar-collapse-2')
-                        span.sr-only Toggle navigation
-                        span.icon-bar
-                        span.icon-bar
-                        span.icon-bar
-                #bs-example-navbar-collapse-1.navbar-collapse.navbar-right
-                    ul.nav.navbar-nav
-                        li.active
-                            a(href='index.html') Home
-                        li.dropdown
-                            a.dropdown-toggle(href='#', data-toggle='dropdown') Pages
-                            ul.dropdown-menu
-                                li
-                                    a(href='index_fixed.html') Home / Fixed
-                                li
-                                    a(href='index_with_blog.html') Home + Blog
-                                li
-                                    a(href='portfolio.html') Portfolio
-                                li
-                                    a(href='typography.html') Typography
-                                li
-                                    a(href='shortcodes.html') Shortcodes
-                                li
-                                    a(href='blog.html') Blog & News
-                                li
-                                    a(href='tables.html') Tables
-                                li
-                                    a(href='faq.html') FAQ
-                        li
-                            a(href='left_sidebar.html') left sidebar
-                        li
-                            a(href='right_sidebar.html') right sidebar
-                        li
-                            a(href='full_width.html') full page
-                        li
-                            a(href='contact.html') contact us
-                // /.navbar-collapse
-    section.slider
-        #myCarousel.carousel.slide.carousel-fade(data-ride='carousel')
-            .carousel-inner
-                .item
-                    img(data-src='images/slider/slider.jpg', alt='First slide', src='images/slider/slider.jpg')
-                    .container
-                        .carousel-caption
-                            h1 Vivamus mollis, mauris sed dapibus sodales
-                            p
-                                | Nulla eu mattis, aenean eget velit augue. Proin pulvinar rutrum leo, at gravida.
-                            p
-                                a.btn.btn-default.btn-lg(href='#', role='button') Trial Now
-                .item.active
-                    img(data-src='images/slider/slider1.jpg', alt='Second slide', src='images/slider/slider1.jpg')
-                    .container
-                        .carousel-caption
-                            h1 Class aptent taciti sociosqu ristique accumsan leo
-                            p Etiam facilisis mauris sit amet venenatis tincidunt. Suspendisse elementum.
-                            p
-                                a.btn.btn-default.btn-lg(href='#', role='button') Get Started
-            a.left.carousel-control(href='#myCarousel', data-slide='prev')
-                span.glyphicon.carousel-control-left
-            a.right.carousel-control(href='#myCarousel', data-slide='next')
-                span.glyphicon.carousel-control-right
-    // end of slider section
-    section.main__middle__container
-        .row.text-center.no-margin.nothing.green__line
-            .container.headings
-                h1.page_title
-                    | Phasellus ultrices nulla quis nibh. Quisque a lectus. Lorem ipsum dolor sit amet elit.
-                p.small-paragraph Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.
-                p
-                    a.btn.btn-info.btn-lg(href='#') Buy Now
-                    a.btn.btn-info.btn-lg(href='#', role='button') Read More
-        .row.heading__block.text-center.no-margin.nothing
-            h2 WHAT WE DO
-            p.small-paragraph Aliquam imperdiet quam ligula. Nulla facilisi.
-        .row.no-margin.grey-info-block.text-center
-            .container
-                h3 Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non ...
-                p.small-paragraph Praesent semper mod quis eget mi. Etiam eu ante risus.
-                .col-md-12
-                    img.img-rounded.img-responsive(src='images/content__images/long_img.jpg', alt='img')
-                    p
-                        | Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede. Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.
-                        | Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.
-                    p
-                        a.btn.btn-primary(href='#') Learn more
-                .col-md-6
-                    h3 Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.
-                    p.small-paragraph Praesent semper mod quis eget mi. Etiam eu ante risus.
-                    img.img-rounded.img-responsive(src='images/content__images/pic1.jpg', alt='pic')
-                    p
-                        | Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.
-                .col-md-6
-                    h3 Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.
-                    p.small-paragraph Praesent semper mod quis eget mi. Etiam eu ante risus.
-                    img.img-rounded.img-responsive(src='images/content__images/pic2.jpg', alt='pic')
-                    p
-                        | Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.
-        .row.heading__block.services.text-center.no-margin.nothing
-            h2 OUR CREATIVE SERVICES
-            p.small-paragraph Aliquam imperdiet quam ligula. Nulla facilisi.
-        .row.three__blocks.no_padding.no-margin
-            .container
-                .col-md-4
-                    h3
-                        small
-                            a(href='#') Easy to customize
-                    img.img-responsive.pull-left.img-rounded(src='images/content__images/img1.jpg', alt='image')
-                    .clr
-                    p
-                        | Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.
-                    p
-                        a.btn.btn-primary(href='#', role='button') read more
-                .col-md-4.middle
-                    h3
-                        small
-                            a(href='#') Ticket system support
-                    img.img-responsive.pull-left.img-rounded(src='images/content__images/img2.jpg', alt='image')
-                    .clr
-                    p
-                        | Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.
-                    p
-                        a.btn.btn-primary(href='#', role='button') read more
-                .col-md-4
-                    h3
-                        small
-                            a(href='#') Great performance
-                    img.img-responsive.pull-left.img-rounded(src='images/content__images/img3.jpg', alt='image')
-                    .clr
-                    p
-                        | Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.
-                    p
-                        a.btn.btn-primary(href='#', role='button') read more
-        .row.text-center.no-margin.nothing.green__line.testimonials
-            .container.headings
-                h2.page_title TESTIMONIALS
-                p.small-paragraph
-                    small Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.
-                #myCarousel2.carousel.slide.carousel-fade(data-ride='carousel')
-                    ol.carousel-indicators
-                        li.active(data-target='#myCarousel2', data-slide-to='0')
-                        li(data-target='#myCarousel2', data-slide-to='1')
-                        li(data-target='#myCarousel2', data-slide-to='2')
-                    .carousel-inner
-                        .item.active
-                            p.small-paragraph
-                                | "Quisque tristique sem ut lacus pulvinar sodales. Praesent ultricies sed suscipit tincidunt. Pellentesque eros dui, interdum vel elit vel. Nunc semper mauris sed eros accumsan, quis viverra. Cras sed leo non sem dictum."
-                            p.small-paragraph
-                                small John Smith, Developer
-                        .item
-                            p.small-paragraph
-                                | "Donec non faucibus quam. Proin sagittis lectus vitae dapibus pellentesque. Morbi at magna pellentesque, vulputate nisl nec. Donec non faucibus quam. Integer non venenatis nunc."
-                            p.small-paragraph
-                                small Daniel Stone, Manager
-                        .item
-                            p.small-paragraph
-                                | "Cras sed leo non sem dictum vulputate nec a nisi. Aliquam erat volutpat. Vivamus facilisis purus eu cursus dictum. Aliquam rutrum est sed purus elementum. Nunc condimentum est in nisi dictum."
-                            p.small-paragraph
-                                small Alison Parks, Sales
-    footer
-        .container
-            .row
-                .col-md-3
-                    h3 About
-                    p
-                        | We strive to deliver a level of service that exceeds the expectations of our customers.
-                        br
-                        br
-                        |           If you have any questions about our products or services, please do not hesitate to contact us. We have friendly, knowledgeable representatives available seven days a week to assist you.
-                .col-md-3
-                    h3 Tweets
-                    p
-                        span Tweet
-                        a(href='#') @You
-                        br
-                        |           Etiam egestas, ipsum posuere accumsan sollicitudin, nulla mauris volutpat sem, sit amet rutrum risus.
-                    p
-                        span Tweet
-                        a(href='#') @You
-                        br
-                        |           Quisque porta tellus vitae adipiscing molestie. Mauris et lacus blandit, malesuada.
-                .col-md-3
-                    h3 Mailing list
-                    p Subscribe to our mailing list for offers, news updates and more!
-                    br
-                    form.form-inline(action='#', method='post', role='form')
-                        .form-group
-                            label.sr-only(for='exampleInputEmail2') your email:
-                            input#exampleInputEmail2.form-control.form-control-lg(type='email', placeholder='your email:')
-                        button.btn.btn-primary(type='submit') subscribe
-                .col-md-3
-                    h3 Social
-                    p
-                        | 123 Business Way
-                        br
-                        |           San Francisco, CA 94108
-                        br
-                        |           USA
-                        br
-                        br
-                        |           Phone: (888) 123-4567
-                        br
-                        |           Fax: (887) 123-4567
-                        br
-                        br
-                    .social__icons
-                        a.socialicon.socialicon-twitter(href='#')
-                        a.socialicon.socialicon-facebook(href='#')
-                        a.socialicon.socialicon-google(href='#')
-            hr
-            p.text-center © Copyright ABC Company. All Rights Reserved.
-    // jQuery (necessary for Bootstrap's JavaScript plugins)
-    script(type='text/javascript', src='js/jquery.min.js')
-    // Include all compiled plugins (below), or include individual files as needed
-    script(src='js/bootstrap.min.js')
-    script(type='text/javascript').
-        $('.carousel').carousel({
-            interval: 3500, // in milliseconds
-            pause: 'none' // set to 'true' to pause slider on mouse hover
+
+    .container
+        .row
+            .col-12
+                h2 2017.01.24
+        .row
+            .col-md-8
+                form
+                    .button-show-hide.pull-right
+                        span#show.badge.badge-default
+                            i.fa.fa-plus(aria-hidden='true')
+                        span#hide.badge.badge-default
+                            i.fa.fa-minus(aria-hidden='true')
+                    fieldset.form-group
+                        legend Contact Information
+                        .contactInformationGroup
+                            .form-group.row
+                                label.col-md-3.col-form-label(for='fullname') Name
+                                .col-md-9
+                                    input#fullname.form-control(type='text', name='fullname')
+                                    // <div class="form-control-feedback">Success! You've done it.</div>
+                                    // <small class="form-text text-muted">Example help text that remains unchanged.</small>
+                            .form-group.row
+                                label.col-md-3.col-form-label(for='email') Email
+                                .col-md-9
+                                    input#email.form-control(type='email', name='email')
+                            .form-group.row
+                                label.col-md-3.col-form-label(for='phone') Phone Number
+                                .col-md-9
+                                    input#phone.form-control(type='tel', name='phone')
+                    fieldset.form-group
+                        legend Time Information
+                        .form-group.row
+                            label.col-sm-6.col-md-5.col-form-label(for='playersNumber') Number of Players
+                            .col-sm-6.col-md-5
+                                .input-group.group-number(role='group', data-default='8', data-min='2', data-max='50')
+                                    button.btn.input-group-addon(type='button')
+                                        i.fa.fa-minus(aria-hidden='true')
+                                    input#playersNumber.form-control(type='text', name='playersNumber', autocomplete='off')
+                                    button.btn.input-group-addon(type='button')
+                                        i.fa.fa-plus(aria-hidden='true')
+                        .form-group.row
+                            label.col-sm-6.col-md-5.col-form-label(for='startTime') Time start
+                            .col-sm-6.col-md-5
+                                .input-group.group-number-time(role='group', data-default='8:00 am', data-min='8:00 am', data-max='6:00 pm')
+                                    button.btn.input-group-addon(type='button')
+                                        i.fa.fa-minus(aria-hidden='true')
+                                    input#startTime.form-control(type='text', name='startTime', autocomplete='off')
+                                    button.btn.input-group-addon(type='button')
+                                        i.fa.fa-plus(aria-hidden='true')
+                        .form-group.row
+                            label.col-sm-6.col-md-5.col-form-label(for='duration') Duration
+                            .col-sm-6.col-md-5
+                                .input-group.group-duration(role='group', data-default='0:00', data-min='0:00', data-max='12:00', data-step='10')
+                                    button.btn.input-group-addon(type='button')
+                                        i.fa.fa-minus(aria-hidden='true')
+                                    input#duration.form-control(type='text', name='duration', autocomplete='off')
+                                    button.btn.input-group-addon(type='button')
+                                        i.fa.fa-plus(aria-hidden='true')
+                        .form-group.row
+                            label.col-sm-6.col-md-5.col-form-label(for='price') Price
+                            .col-sm-6.col-md-5
+                                #price.price(type='text')
+                                    h4
+                                        i.fa.fa-dollar
+                                        strong.price-value(data-default='0.00')
+            .col-md-4
+                ul.time-list
+                    li
+                        span.badge.badge-success(data-duration='30')  8:00 am
+                    li
+                        span.badge.badge-success(data-duration='30')  8:30 am
+                    li
+                        span.badge.badge-success(data-duration='30')  9:00 am
+                    li
+                        span.badge.badge-success(data-duration='30')  9:30 am
+                    li
+                        span.badge.badge-success(data-duration='30') 10:00 am
+                    li
+                        span.badge.badge-success(data-duration='30') 10:30 am
+                    li
+                        span.badge.badge-success(data-duration='30') 11:00 am
+                    li
+                        span.badge.badge-success(data-duration='30') 11:30 am
+                    li
+                        span.badge.badge-success(data-duration='30') 12:00 pm
+                    li
+                        span.badge.badge-success(data-duration='30') 12:30 pm
+                    li
+                        span.badge.badge-success(data-duration='30') 10:00 pm
+                    li
+                        span.badge.badge-success(data-duration='30') 10:30 pm
+                    li
+                        span.badge.badge-success(data-duration='30') 12:00 pm
+                    li
+                        span.badge.badge-success(data-duration='30') 12:30 pm
+                    li
+                        span.badge.badge-success(data-duration='30')  1:00 pm
+                    li
+                        span.badge.badge-success(data-duration='30')  1:30 pm
+                    li
+                        span.badge.badge-success(data-duration='30')  2:00 pm
+                    li
+                        span.badge.badge-success(data-duration='30')  2:30 pm
+                    li
+                        span.badge.badge-success(data-duration='30')  3:00 pm
+                    li
+                        span.badge.badge-success(data-duration='30')  3:30 pm
+                    li
+                        span.badge.badge-success(data-duration='30')  4:00 pm
+                    li
+                        span.badge.badge-success(data-duration='30')  4:30 pm
+                    li
+                        span.badge.badge-success(data-duration='30')  5:00 pm
+                    li
+                        span.badge.badge-success(data-duration='30')  5:30 pm
+                    li
+                        span.badge.badge-success(data-duration='30')  6:00 pm
+                    li
+                        span.badge.badge-success(data-duration='30')  6:30 pm
+        ul.pagination
+        br
+        br
+        br
+    script.
+        $(function () {
+            var pagination = $(".pagination").pagination();
+            pagination.setTotalCont(45601);
         })

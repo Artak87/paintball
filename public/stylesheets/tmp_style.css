@@ -124,7 +124,7 @@ p.big-paragraph {
 
 /* grey-info-block */
 .grey-info-block {
-    background: url("../images/gallery8.jpg") no-repeat;
+    background: url("../images/big_line_bg2.jpg") no-repeat;
     background-size: 100% 100%;
     width: 100%;
     margin: 0;
@@ -602,23 +602,18 @@ button.btn-primary:focus {
 }
 
 .socialicon-facebook {
-    background: url('../images/social/facebook.png') no-repeat;
 }
 
 .socialicon-google {
-    background: url('../images/social/google.png') no-repeat;
 }
 
 .socialicon-twitter:hover {
-    background: url('../images/social/twitter_a.png') no-repeat;
 }
 
 .socialicon-facebook:hover {
-    background: url('../images/social/facebook_a.png') no-repeat;
 }
 
 .socialicon-google:hover {
-    background: url('../images/social/google_a.png') no-repeat;
 }
 
 /* Contact Form */

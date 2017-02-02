@@ -18,6 +18,15 @@ router.get('/order', function(req, res, next) {
 });
 
 
+router.get('/contact', function(req, res, next) {
+    res.render('page/contact', { title: 'Contact', env: env });
+});
+
+router.get('/sidebar', function(req, res, next) {
+    res.render('page/sidebar', { title: 'Sidebar', env: env });
+});
+
+
 router.get('/login',
   function(req, res){
     res.render('login', { env: env });

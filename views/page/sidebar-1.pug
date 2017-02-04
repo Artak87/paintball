@@ -1,37 +1,23 @@
 extends ../layout
 include ../block/order-card
+include ../block/menu
 
 block before
     link(rel='stylesheet', href='/stylesheets/order-card.css')
 block after
 
 block content
-    section.main__middle__container
-        .container
-            .row
-                aside.col-md-4.pull-left
-                    header.main__header
-                        .container
-                            nav.navbar.navbar-toggleable-md.navbar-light.bg-faded.navbar-default(style='display: block')
-                                #mainnavbar.collapse.navbar-center.navbar-collapse
-                                    ul.navbar-nav.mr-auto(style="display: block;")
-                                        li.nav-item.active
-                                            a.nav-link(href='#') Home
-                                        li.nav-item
-                                            a.nav-link(href='#') left sidebar
-                                        li.nav-item
-                                            a.nav-link(href='#') right sidebar
-                                        li.nav-item
-                                            a.nav-link(href='#') right page
-                                        li.nav-item
-                                            a.nav-link(href='#') contact us
-                section.col-md-8.pull-right.main-content
-                    h2
-                        span Left Sidebar
-                    +orderCatd("info")
-                    +orderCatd("success")
-                    +orderCatd("warning")
-                    +orderCatd("primary")
-                    +orderCatd("danger")
+    .container
+        .row
+            aside.col-md-4.pull-left
+                +menuBlock()
+            section.col-md-8.pull-right.main-content
+                h2
+                    span Left Sidebar
+                +orderCatd("info")
+                +orderCatd("success")
+                +orderCatd("warning")
+                +orderCatd("primary")
+                +orderCatd("danger")
 
 

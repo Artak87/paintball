@@ -27,6 +27,11 @@ router.get('/sidebar', function(req, res, next) {
 });
 
 
+router.get('/test', function(req, res, next) {
+    res.render('page/sidebar-1', { title: 'Sidebar', env: env });
+});
+
+
 router.get('/login',
   function(req, res){
     res.render('login', { env: env });

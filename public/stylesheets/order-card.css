@@ -1,0 +1,44 @@
+.order-card {
+    border-left-width: .25rem;
+}
+.order-card li {
+    border: none;
+}
+
+.order-card-title {
+    border-bottom: 1px solid rgba(204, 204, 204, 0.75);
+}
+
+.order-card-success h4,
+.order-card-success strong {
+    color: rgba(92, 184, 92, 0.75);
+}
+
+.order-card-danger h4,
+.order-card-danger strong {
+    color: rgba(217, 83, 79, 0.75);
+}
+
+.order-card-primary h4,
+.order-card-primary strong {
+    color: rgba(2, 117, 216, 0.75);
+}
+
+.order-card-info h4,
+.order-card-info strong {
+    color: rgba(91, 192, 222, 0.75);
+}
+
+.order-card-warning h4,
+.order-card-warning strong {
+    color: rgba(240, 173, 78, 0.75);
+}
+
+.order-card-default h4,
+.order-card-default strong {
+}
+
+
+
+
+

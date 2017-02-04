@@ -1,0 +1,43 @@
+mixin orderCatd(postfix)
+    div(class="card order-card mb-3 card-outline-" + postfix + " order-card-" + postfix)
+        .card-block.p-0
+            .row.p-0.m-0
+                .col.p-1.order-card-title
+                    h4.p-0.m-1
+                        i.fa.fa-fw.fa-check.m-1
+                        | COMPLETED
+            .row.p-0.m-0.mt-2
+                .col-md-6.p-1
+                    ul.list-group.pl-1
+                        li.list-group-item.p-1.mb-1
+                            p.text-truncate.m-0(title="Ashot Mnatsakanyan")
+                                i.mr-3.fa.fa-fw.fa-user
+                                | Ashot Mnatsakanyan
+                        li.list-group-item.p-1.mb-1
+                            p.text-truncate.m-0(title="+374 95 567818")
+                                i.mr-3.fa.fa-fw.fa-mobile
+                                | +374 95 567818
+                        li.list-group-item.p-1.mb-1
+                            p.text-truncate.m-0(title="mnatsakanyan.ashot@gmail.com")
+                                i.mr-3.fa.fa-fw.fa-at
+                                | mnatsakanyan.ashot@gmail.com
+                .col-md-6.p-1
+                    ul.list-group.pl-1
+                        li.list-group-item.p-1.mb-1
+                            p.text-truncate.m-0(title="12")
+                                i.mr-3.fa.fa-fw.fa-users
+                                | 12
+                        li.list-group-item.p-1.mb-1
+                            p.text-truncate.m-0(title="2017/02/15")
+                                i.mr-3.fa.fa-fw.fa-calendar
+                                | 2017/02/15
+                        li.list-group-item.p-1.mb-1
+                            p.text-truncate.m-0(title="2 hour 30 min")
+                                i.mr-3.fa.fa-fw.fa-clock-o
+                                | 2 hour 30 min
+            .row.p-0.m-0.pt-2
+                .col.p-2.pr-4
+                    strong.pull-right
+                        p.text-truncate.m-0(title="$ 1 220.00")
+                            i.fa.fa-fw.fa-dollar
+                            | 1 220.00

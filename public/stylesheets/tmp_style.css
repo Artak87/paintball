@@ -561,7 +561,7 @@ button.btn-primary:focus {
 
 /*Three Blocks*/
 .three-blocks {
-    background: url('../images/gallery3.jpg') no-repeat;
+    background: url('../images/big_line_bg.jpg') no-repeat;
     background-size: 100% 100%;
     color: #b7b7b7;
 }
@@ -586,7 +586,6 @@ button.btn-primary:focus {
 
 .three-blocks h3 {
     padding: 15px 0;
-    width: 250px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

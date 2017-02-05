@@ -1,0 +1,30 @@
+mixin pagination(currentPage, totalCounty, countPerPage, maxBlockCount)
+    - currentPage = currentPage || 1;
+    - countPerPage = countPerPage || 20;
+    - maxBlockCount = maxBlockCount || 7;
+    - var maxPagesCount = Math.ceil(totalCounty / countPerPage);
+    - var startPage = 1;
+    - var pagesCount = maxPagesCount;
+    - var showPrevNext = pagesCount > maxBlockCount;
+    - pagesCount = showPrevNext ? maxBlockCount : pagesCount;
+    - var k = Math.ceil(maxBlockCount / 2);
+    if currentPage > k
+        if currentPage + k > maxPagesCount
+            - startPage = maxPagesCount - pagesCount + 1;
+        if currentPage + k <= maxPagesCount
+            - startPage = currentPage - k + 1;
+    if pagesCount > 1
+        ul.pagination
+            if showPrevNext
+                li.page-item
+                    a.page-link(href="#") &laquo;
+            - var i = startPage
+            while i < pagesCount + startPage
+                - var active = i == currentPage ? 'active' : '';
+                li(class="page-item " + active )
+                    a.page-link(href="#")
+                        =i
+                - ++i
+            if showPrevNext
+                li.page-item
+                    a.page-link(href="#") &raquo;

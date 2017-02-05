@@ -1,6 +1,7 @@
 extends ../layout
 include ../block/order-card
 include ../block/menu
+include ../block/pagination
 
 block before
     link(rel='stylesheet', href='/stylesheets/order-card.css')
@@ -20,4 +21,11 @@ block content
                 +orderCatd("primary")
                 +orderCatd("danger")
 
+        +pagination(1, 70)
+        +pagination(1, 700)
+        +pagination(10, 700)
+        +pagination(35, 700)
+        +pagination(1, 1)
+        +pagination(1, 21)
+        +pagination(2, 21)
 

@@ -3,16 +3,9 @@ header.main__header
         nav.navbar.navbar-toggleable-md.navbar-light.bg-faded.navbar-default(style='display: block')
             #mainnavbar.collapse.navbar-center.navbar-collapse
                 ul.navbar-nav.mr-auto
-                    li.nav-item.active
-                        a.nav-link(href='#') Home
-                    li.nav-item
-                        a.nav-link(href='#') left sidebar
-                    li.nav-item
-                        a.nav-link(href='#') right sidebar
-                    li.nav-item
-                        a.nav-link(href='#') right page
-                    li.nav-item
-                        a.nav-link(href='#') contact us
+                    each item in mainMenu
+                        li(class="nav-item" + ("/" + paths[0] == item.path ? " active" : ""))
+                            a.nav-link(href=item.path)= item.title
             .navbar-header
                 button.navbar-toggler.navbar-toggler-right(type='button', data-toggle='collapse', data-target='#mainnavbar', aria-controls='mainnavbar', aria-expanded='false', aria-label='Toggle navigation')
                     span.navbar-toggler-icon

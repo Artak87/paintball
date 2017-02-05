@@ -8,13 +8,17 @@ const env = {
   AUTH0_CALLBACK_URL: process.env.AUTH0_CALLBACK_URL || 'http://localhost:3000/callback'
 };
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('page/index', { title: 'Express', env: env });
+
+router.get('/', function (req, res, next) {
+    res.render('page/index', {
+        title: 'Express',
+    });
 });
 
 router.get('/order', function(req, res, next) {
-    res.render('page/order', { title: 'Order', env: env });
+    res.render('page/order', {
+        title: 'Order',
+    });
 });
 
 
@@ -22,12 +26,12 @@ router.get('/contact', function(req, res, next) {
     res.render('page/contact', { title: 'Contact', env: env });
 });
 
-router.get('/sidebar', function(req, res, next) {
+router.get('/about', function(req, res, next) {
     res.render('page/sidebar', { title: 'Sidebar', env: env });
 });
 
 
-router.get('/test', function(req, res, next) {
+router.get('/news', function(req, res, next) {
     res.render('page/sidebar-1', { title: 'Sidebar', env: env });
 });
 

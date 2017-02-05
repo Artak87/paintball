@@ -60,6 +60,21 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+app.locals.mainMenu = [
+    {path: '/',        title: 'Home'},
+    {path: '/about',   title: 'About us'},
+    {path: '/rule',    title: 'Rules'},
+    {path: '/news',    title: 'News'},
+    {path: '/contact', title: 'Contact us'},
+];
+
+app.use((req, res, next) => {
+    res.locals.paths = req.path.substr(1).split("/");
+    next()
+});
+
+
 app.use('/', routes);
 app.use('/user', user);
 

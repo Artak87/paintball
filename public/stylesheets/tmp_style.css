@@ -628,13 +628,6 @@ button.btn-primary:focus {
 .contact-form {
 }
 
-.contact-form .col-md-6 {
-    padding: 0 20px 0 0;
-}
-
-.contact-form .col-md-6:nth-child(2) {
-    padding: 0 0 0 0;
-}
 
 /* Aside */
 aside h3 {

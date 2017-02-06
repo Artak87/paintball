@@ -624,6 +624,18 @@ button.btn-primary:focus {
     color: #ffcd55;
 }
 
+.socialicon-twitter:focus {
+    color: #ffcd55;
+}
+
+.socialicon-facebook:focus {
+    color: #ffcd55;
+}
+
+.socialicon-google:focus {
+    color: #ffcd55;
+}
+
 /* Contact Form */
 .contact-form {
 }
@@ -1388,4 +1400,24 @@ ul.dropdown-menu {
     .three-blocks {
         background: #434a4a;
     }
+}
+
+.joinus {
+    border-top: 1px solid #888888;
+    position: relative;
+}
+
+.joinus span {
+    padding: 0 30px;
+    position: relative;
+    bottom: 25px;
+}
+.joinus a:hover {
+    background-color: #ffcd55;
+    border-color: #ffcd55;
+    color: #444c4c;
+}
+
+.joinus a {
+    background-color: #FF353D;
 }

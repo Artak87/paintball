@@ -7,6 +7,7 @@ jQuery(document).ready(function ($) {
         hour: 5
     });
 
+
     durationElement.on("change", calculatePrice);
     startTimeElement.on("change", calculatePrice);
     playersNumberElement.on("change", calculatePrice);

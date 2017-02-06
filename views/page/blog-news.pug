@@ -11,8 +11,9 @@ block content
                     span recent post
                 .row
                     .col-md-9
+                        include ../block/news-article
                         article
-                            img.float-left.img-responsive(src='/images/gallery5.jpg', alt='pic1')
+                            img.float-left.img-fluid(src='/images/post/post2.jpg', alt='pic2')
                             .text
                                 p
                                     small Lorem ipsum dolor sit amet
@@ -23,30 +24,7 @@ block content
                                 p
                                     a.btn.btn-success(href='#') Learn more
                             .clearfix
-                        article
-                            img.pull-left.img-responsive(src='/images/gallery7.jpg', alt='pic2')
-                            .text
-                                p
-                                    small Lorem ipsum dolor sit amet
-                                h3
-                                    a(href='#') Aliquam dictum felis a purus cursus
-                                p
-                                    | Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.
-                                p
-                                    a.btn.btn-success(href='#') Learn more
-                            .clearfix
-                        article
-                            img.pull-left.img-responsive(src='/images/gallery8.jpg', alt='pic3')
-                            .text
-                                p
-                                    small Lorem ipsum dolor sit amet
-                                h3
-                                    a(href='#') Aliquam dictum felis a purus cursus
-                                p
-                                    | Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.
-                                p
-                                    a.btn.btn-success(href='#') Learn more
-                            .clearfix
+                        include ../block/news-article
                     .col-md-3
                         .icon-item
                             h3

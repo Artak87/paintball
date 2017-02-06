@@ -22,17 +22,17 @@ block content
                             form#contact-form.contact-form(role='form', name='contact-form', method='post', action='')
                                 .row.p-0
                                     .form-group.col-md-6
-                                        label.sr-only(for='exampleInputEmail1') Your Name: *
-                                        input#name.form-control(required='', type='text', name='name', placeholder='Your Name: *')
+                                        label.sr-only(for='name') Your Name: *
+                                        input#name.form-control(required, type='text', name='name', placeholder='Your Name: *')
                                     .form-group.col-md-6
-                                        label.sr-only(for='exampleInputEmail1') Email: *
-                                        input#email.form-control(required='', type='email', name='email', placeholder='Email: *')
+                                        label.sr-only(for='email') Email: *
+                                        input#email.form-control(required, type='email', name='email', placeholder='Email: *')
                                 .clearfix
                                 .form-group
-                                    label.sr-only(for='exampleInputEmail1') Subject:
+                                    label.sr-only(for='subject') Subject:
                                     input#subject.form-control(type='text', name='subject', placeholder='Subject:')
                                 .form-group
-                                    textarea#message.form-control(required='', name='message', rows='5', placeholder='Message: *')
+                                    textarea#message.form-control(required, name='message', rows='5', placeholder='Message: *')
                                 input#submit-button.btn.btn-lg.btn-info(type='submit', value='Submit')
                     .col-md-4
                         h3 Get in touch with us

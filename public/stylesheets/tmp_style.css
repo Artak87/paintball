@@ -1389,8 +1389,8 @@ ul.dropdown-menu {
 
 .dc_clear {
     clear: both;
-    font-size: 0px;
-    line-height: 0px;
+    font-size: 0;
+    line-height: 0;
     margin: 0;
     padding: 0;
     width: 100%
@@ -1403,7 +1403,7 @@ ul.dropdown-menu {
 }
 
 .joinus {
-    border-top: 1px solid #888888;
+    border-top: 1px solid #9E9BA8;
     position: relative;
 }
 
@@ -1411,6 +1411,7 @@ ul.dropdown-menu {
     padding: 0 30px;
     position: relative;
     bottom: 25px;
+    background-color: white;
 }
 .joinus a:hover {
     background-color: #FEFEFE;
@@ -1420,5 +1421,11 @@ ul.dropdown-menu {
 
 .joinus a {
     background-color: #FFCD55;
-    padding: 1rem 3rem;
+    padding: 1rem 4rem;
+}
+
+.joinus a:focus {
+    background-color: #FEFEFE;
+    border-color: #ffcd55;
+    color: #9e9ba8;;
 }

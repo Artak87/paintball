@@ -36,6 +36,11 @@ router.get('/news', function(req, res, next) {
 });
 
 
+router.get('/rule', function(req, res, next) {
+    res.render('page/blog-news', { title: 'Blog-news', env: env });
+});
+
+
 router.get('/login',
   function(req, res){
     res.render('login', { env: env });

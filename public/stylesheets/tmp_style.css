@@ -533,6 +533,9 @@ button.btn-primary:focus {
     position: relative;
     top: 60px;
 }
+.service-icons a {
+    background-color: transparent;
+}
 
 .service-icons h2 span {
     background-color: #eff2f2;
@@ -853,6 +856,8 @@ footer .copy {
     .service-icons {
         text-align: center;
     }
+
+
 
     .service-icons img {
         float: none;
@@ -1405,13 +1410,11 @@ ul.dropdown-menu {
 .joinus {
     border-top: 1px solid #9E9BA8;
     position: relative;
+    border-bottom: 1px solid #9E9BA8;
 }
 
-.joinus span {
-    padding: 0 30px;
-    position: relative;
-    bottom: 25px;
-    background-color: white;
+.joinus h2 {
+    margin-top: .5rem;
 }
 .joinus a:hover {
     background-color: #FEFEFE;
@@ -1422,6 +1425,7 @@ ul.dropdown-menu {
 .joinus a {
     background-color: #FFCD55;
     padding: 1rem 4rem;
+    border-color: #ffcd55;
 }
 
 .joinus a:focus {

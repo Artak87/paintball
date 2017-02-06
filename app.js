@@ -8,11 +8,13 @@ const session = require('express-session');
 const dotenv = require('dotenv');
 const passport = require('passport');
 const Auth0Strategy = require('passport-auth0');
+const helmet = require('helmet');
+const userService = require('./src/service/user-service');
 
 dotenv.load();
 
 const routes = require('./src/routes/index');
-const user = require('./src/routes/user');
+const user = require('./src/routes/user-rout');
 
 // This will configure Passport to use Auth0
 const strategy = new Auth0Strategy({
@@ -31,13 +33,13 @@ const strategy = new Auth0Strategy({
 passport.use(strategy);
 
 // you can use this section to keep a smaller payload
-passport.serializeUser(function(user, done) {
-  done(null, user);
-});
-
-passport.deserializeUser(function(user, done) {
-  done(null, user);
-});
+// passport.serializeUser(function(user, done) {
+//   done(null, user);
+// });
+//
+// passport.deserializeUser(function(user, done) {
+//   done(null, user);
+// });
 
 const app = express();
 
@@ -59,6 +61,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(helmet());
 
 
 app.locals.mainMenu = [
@@ -69,8 +72,17 @@ app.locals.mainMenu = [
     {path: '/contact', title: 'Contact us'},
 ];
 
+app.locals.env = {
+    AUTH0_CLIENT_ID: process.env.AUTH0_CLIENT_ID,
+    AUTH0_DOMAIN: process.env.AUTH0_DOMAIN,
+    AUTH0_CALLBACK_URL: process.env.AUTH0_CALLBACK_URL || 'http://localhost:3000/callback'
+};
+
 app.use((req, res, next) => {
     res.locals.paths = req.path.substr(1).split("/");
+    res.locals.isAuthenticated = req.isAuthenticated;
+    res.locals.user = userService.mainInfo(req.user);
+
     next()
 });
 

@@ -1,8 +1,8 @@
-mixin pagination(currentPage, totalCounty, countPerPage, maxBlockCount)
+mixin pagination(currentPage, totalCount, countPerPage, maxBlockCount)
     - currentPage = currentPage || 1;
     - countPerPage = countPerPage || 20;
     - maxBlockCount = maxBlockCount || 7;
-    - var maxPagesCount = Math.ceil(totalCounty / countPerPage);
+    - var maxPagesCount = Math.ceil(totalCount / countPerPage);
     - var startPage = 1;
     - var pagesCount = maxPagesCount;
     - var showPrevNext = pagesCount > maxBlockCount;

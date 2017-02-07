@@ -3,8 +3,6 @@ machine:
     - docker
 #  node:
 #    version: 7.5.0
-  python:
-    version: 2.7
   environment:
     DOCKER_CERT_PATH: .cloud_hero
     DOCKER_HOST: tcp://swarm3856.chapi.co:8443
@@ -19,7 +17,7 @@ dependencies:
   override:
     - wget https://dl.eff.org/certbot-auto
     - chmod a+x certbot-auto
-    - ./certbot-auto
+    - sudo ./certbot-auto
     - mkdir sslcert
     - mkdir -p static/.well-known/acme-challenge
     - ./certbot-auto --webroot -w ./static -d swarm3856.cloudout.co

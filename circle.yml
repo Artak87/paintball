@@ -8,6 +8,11 @@ machine:
     DOCKER_HOST: tcp://swarm3856.chapi.co:8443
     DOCKER_TLS_VERIFY: 1
 
+checkout:
+  post:
+    - git submodule sync
+    - git submodule update --init
+
 #dependencies:
 #  override:
 #    - npm install --unsafe-perm -q

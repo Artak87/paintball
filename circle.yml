@@ -1,8 +1,10 @@
 machine:
   services:
     - docker
-  node:
-    version: 7.3.0
+#  node:
+#    version: 7.5.0
+  python:
+    version: 2.7
   environment:
     DOCKER_CERT_PATH: .cloud_hero
     DOCKER_HOST: tcp://swarm3856.chapi.co:8443

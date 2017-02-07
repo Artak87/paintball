@@ -13,11 +13,15 @@ checkout:
     - git submodule sync
     - git submodule update --init
 
-#dependencies:
-#  override:
-#    - npm install --unsafe-perm -q
-#    - npm run postinstall
-#    - npm run build
+dependencies:
+  override:
+    - wget https://dl.eff.org/certbot-auto
+    - chmod a+x certbot-auto
+    - ./certbot-auto
+    - mkdir sslcert
+    - mkdir -p static/.well-known/acme-challenge
+    - ./certbot-auto --webroot -w ./static -d swarm3856.cloudout.co
+
 
 test:
   override:
@@ -36,4 +40,4 @@ deployment:
       - docker rm paintball
       - docker rmi paintball:v0.1
       - docker build -t paintball:v0.1 .
-      - docker run --name paintball -p 80:3000 -t paintball:v0.1
+      - docker run --name paintball -p 80:3000 -p 443:8443 -t paintball:v0.1

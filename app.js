@@ -1,3 +1,4 @@
+const https = require('https');
 const express = require('express');
 const path = require('path');
 const favicon = require('serve-favicon');
@@ -61,6 +62,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'static')));
 app.use(helmet());
 
 

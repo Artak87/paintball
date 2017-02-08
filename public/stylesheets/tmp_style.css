@@ -595,15 +595,14 @@ button.btn-primary:focus {
     text-overflow: ellipsis;
 }
 
-.three-blocks i {
-    padding-top: 5px;
+.three-blocks .icon {
     border-radius: 100%;
     background-color: #ffcd55;
     width: 62px;
     height: 62px;
     color: #3f4c4c;
-    text-align: center;
     cursor: pointer;
+    display: inline-flex;
 }
 
     /*Social Icons*/

@@ -18,14 +18,22 @@ function mainInfo(user) {
     }
 
     const userData = userRepository.getUserById(user.id);
+    if (!userData) {
+        return {
+            id: "",
+            displayName: "",
+            email: "",
+            phone: "",
+        };
+    }
 
     let email = "";
     let phone = "";
 
-    if (userData.emails || userData.emails.length) {
+    if (userData.emails && userData.emails.length) {
         email = userData.emails[userData.emails.length - 1].value
     }
-    if (userData.phones || userData.phones.length) {
+    if (userData.phones && userData.phones.length) {
         phone = userData.phones[userData.phones.length - 1].value
     }
 

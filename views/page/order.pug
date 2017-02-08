@@ -22,17 +22,17 @@ block content
                             .form-group.row.p-0
                                 label.col-md-3.col-form-label(for='fullname') Name
                                 .col-md-9
-                                    input#fullname.form-control(type='text', name='fullname')
+                                    input#fullname.form-control(type='text', name='fullname', value=user.displayName)
                                     // <div class="form-control-feedback">Success! You've done it.</div>
                                     // <small class="form-text text-muted">Example help text that remains unchanged.</small>
                             .form-group.row.p-0
                                 label.col-md-3.col-form-label(for='email') Email
                                 .col-md-9
-                                    input#email.form-control(type='email', name='email')
+                                    input#email.form-control(type='email', name='email', value=user.email)
                             .form-group.row.p-0
                                 label.col-md-3.col-form-label(for='phone') Phone Number
                                 .col-md-9
-                                    input#phone.form-control(type='tel', name='phone')
+                                    input#phone.form-control(type='tel', name='phone', value=user.phone)
                     fieldset.form-group
                         legend Time Information
                         .form-group.row.p-0

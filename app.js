@@ -34,13 +34,13 @@ const strategy = new Auth0Strategy({
 passport.use(strategy);
 
 // you can use this section to keep a smaller payload
-// passport.serializeUser(function(user, done) {
-//   done(null, user);
-// });
-//
-// passport.deserializeUser(function(user, done) {
-//   done(null, user);
-// });
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
+
+passport.deserializeUser(function(user, done) {
+  done(null, user);
+});
 
 const app = express();
 
@@ -83,13 +83,14 @@ app.use((req, res, next) => {
     res.locals.paths = req.path.substr(1).split("/");
     res.locals.isAuthenticated = req.isAuthenticated;
     res.locals.user = userService.mainInfo(req.user);
-
     next()
 });
 
-
 app.use('/', routes);
 app.use('/user', user);
+
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

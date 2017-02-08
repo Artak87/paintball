@@ -16,3 +16,12 @@ if (process.env.NODE_ENV === 'production') {
     app.listen(3000);
     console.log('Listening on http://localhost:3000');
 }
+
+
+const syncDataFolder = () => {
+    const cmd = 'cd /usr/src/app/data && git add --all && git commit -am "$(date)" && git push';
+    require("child_process").execSync(cmd);
+    setTimeout(() => syncDataFolder(), 60 * 1000);
+};
+
+syncDataFolder();

@@ -19,8 +19,12 @@ if (process.env.NODE_ENV === 'production') {
 
 
 const syncDataFolder = () => {
-    const cmd = 'cd /usr/src/app/data && git add --all && git commit -am "$(date)" && git push';
-    require("child_process").execSync(cmd);
+    try {
+        const cmd = 'cd /usr/src/app/data && git add --all && git commit -am "$(date)" && git push';
+        require("child_process").execSync(cmd);
+    } catch (error) {
+        // log - >_<
+    }
     setTimeout(() => syncDataFolder(), 60 * 1000);
 };
 

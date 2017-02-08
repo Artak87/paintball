@@ -6,6 +6,8 @@ jQuery(document).ready(function ($) {
     var priceElement = $("#price").price({
         hour: 5
     });
+    var timeList = $("#price").timeList({
+    });
 
 
     durationElement.on("change", calculatePrice);

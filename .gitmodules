@@ -1,0 +1,3 @@
+[submodule "paintball-data"]
+	path = paintball-data
+	url = https://github.com/ashmna/paintball-data.git

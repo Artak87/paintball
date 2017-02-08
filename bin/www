@@ -20,7 +20,7 @@ if (process.env.NODE_ENV === 'production') {
 
 const syncDataFolder = () => {
     try {
-        const cmd = 'cd /usr/src/app/data && git add --all && git commit -am "$(date)" && git push';
+        const cmd = 'cd /usr/src/app/data && git add --all && git commit -am "$(date)" && git push origin master';
         require("child_process").execSync(cmd);
     } catch (error) {
         // log - >_<

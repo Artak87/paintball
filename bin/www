@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const app = require('../app');
+const push = require('git-push');
 
 if (process.env.NODE_ENV === 'production') {
     require('letsencrypt-express').create({
@@ -20,8 +21,7 @@ if (process.env.NODE_ENV === 'production') {
 
 const syncDataFolder = () => {
     try {
-        const cmd = 'cd /usr/src/app/data && git add --all && git commit -am "$(date)" && git push origin master';
-        require("child_process").execSync(cmd);
+        push('../data', 'https://github.com/ashmna/paintball-data', () => {});
     } catch (error) {
         // log - >_<
     }

@@ -380,6 +380,7 @@ ul.dropdown-menu > li > a:hover {
     line-height: 40px;
     padding: 0;
     margin-top: 10px;
+    box-shadow: none;
 }
 
 .btn-success:hover {
@@ -594,7 +595,18 @@ button.btn-primary:focus {
     text-overflow: ellipsis;
 }
 
-/*Social Icons*/
+.three-blocks i {
+    padding-top: 5px;
+    border-radius: 100%;
+    background-color: #ffcd55;
+    width: 62px;
+    height: 62px;
+    color: #3f4c4c;
+    text-align: center;
+    cursor: pointer;
+}
+
+    /*Social Icons*/
 .socialicon {
     position: relative;
     display: inline-block;
@@ -1202,10 +1214,10 @@ ul.dropdown-menu {
 
     .navbar-default .navbar-brand, .navbar-default .navbar-brand:hover {
         float: left;
-        margin-top: 0px;
-        bottom: 0px;
+        margin-top: 0;
+        bottom: 0;
         line-height: normal;
-        padding-left: 0px;
+        padding-left: 0;
     }
 
     .navbar-default .navbar-collapse ul {

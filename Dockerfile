@@ -21,4 +21,4 @@ RUN npm install
 # Bundle app source
 COPY . /usr/src/app
 
-CMD ["crond", "&&", "npm", "start" ]
+CMD ["nohup crond &", "&&", "npm", "start"]

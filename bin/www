@@ -1,9 +1,13 @@
 #!/usr/bin/env node
 
-const app = require('../app');
 const execSync = require('child_process').execSync;
+const fs = require('fs');
 
-execSync('git pull https://ashmna:ash140289@github.com/ashmna/paintball-data.git data');
+if (!fs.existsSync('./data')) {
+    execSync('git clone https://ashmna:ash140289@github.com/ashmna/paintball-data.git data');
+}
+
+const app = require('../app');
 
 if (process.env.NODE_ENV === 'production') {
     require('letsencrypt-express').create({
@@ -23,13 +27,13 @@ if (process.env.NODE_ENV === 'production') {
 
 const syncDataFolder = () => {
     try {
-        execSync('cd ./data git add --all');
-        execSync('cd ./data git commit -am "$(date)"');
-        execSync('cd ./data git push');
+        execSync('cd ./data && git add --all');
+        execSync('cd ./data && git commit -am "$(date)"');
+        execSync('cd ./data && git push');
     } catch (error) {
         // log   >_<
     }
-    setTimeout(() => syncDataFolder(), 60 * 1000);
+    setTimeout(() => syncDataFolder(), 10 * 1000);
 };
 
 syncDataFolder();

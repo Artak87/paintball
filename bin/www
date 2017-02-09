@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 
 const app = require('../app');
-const execSync = require("child_process").execSync;
+const execSync = require('child_process').execSync;
+
+execSync('git pull https://ashmna:ash140289@github.com/ashmna/paintball-data.git data');
 
 if (process.env.NODE_ENV === 'production') {
     require('letsencrypt-express').create({
@@ -21,7 +23,9 @@ if (process.env.NODE_ENV === 'production') {
 
 const syncDataFolder = () => {
     try {
-        // code   -_-
+        execSync('cd ./data git add --all');
+        execSync('cd ./data git commit -am "$(date)"');
+        execSync('cd ./data git push');
     } catch (error) {
         // log   >_<
     }

@@ -1,12 +1,18 @@
 jQuery(document).ready(function ($) {
 
+    var step = 30;
     var playersNumberElement = $(".group-number").groupNumber();
-    var startTimeElement = $(".group-number-time").groupNumberTime();
-    var durationElement = $(".group-duration").groupDuration();
+    var startTimeElement = $(".group-number-time").groupNumberTime({
+        step: step
+    });
+    var durationElement = $(".group-duration").groupDuration({
+        step: step
+    });
     var priceElement = $("#price").price({
         hour: 5
     });
-    var timeList = $("#price").timeList({
+    var timeList = $("#time-list").timeList({
+        step: step
     });
 
 

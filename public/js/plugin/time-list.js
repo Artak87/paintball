@@ -7,6 +7,9 @@
             start: (new Date()).setHours(6, 0, 0, 0),
             end: (new Date()).setHours(20, 0, 0, 0),
             step: 10,
+            disable: [
+                {start: (new Date()).setHours(14, 0, 0, 0), end: (new Date()).setHours(15, 30, 0, 0)}
+            ], // {start, end} -- js timestamp
         }, options);
 
         var el = this;
@@ -27,10 +30,15 @@
 
 
                 for (var i = 1; i < row.length; ++i) {
-                    li = $("<li style='width: " + size + "%;'><small>" + row[i] + "</small></li>");
-
                     var timeStart = row[0] + (i - 1) * setting.step * 60 * 1000;
                     var timeEnd = row[0] + i * setting.step * 60 * 1000;
+                    var className = '';
+                    if (!isFreeTime(timeStart)) {
+                        className = ' d'
+                    }
+
+                    li = $("<li class='i" + className + "' style='width: " + size + "%;'><div><small>" + row[i] + "</div></small></li>");
+
                     li.data('timeStart', timeStart);
                     li.data('timeEnd', timeEnd);
 
@@ -50,26 +58,41 @@
             var item = $(this);
             var timeStart = item.data('timeStart');
             var timeEnd = item.data('timeEnd');
-            if (isFreeTime(timeStart)) {
-                if (!selectStart) {
-                    selectStart = timeStart;
-                    selectEnd = timeEnd;
-                    selectItem(item);
-                } else if (selectEnd === timeStart) {
-                    selectEnd = timeEnd;
-                    selectItem(item);
-                } else  if (isCanFillTime(selectEnd, timeStart)) {
-                    fillTime(selectEnd, timeEnd);
-                    selectEnd = timeEnd;
-                } else {
-                    selectStart = timeStart;
-                    selectEnd = timeEnd;
-                    deselectAll();
-                    selectItem(item);
-                }
+
+            if (!selectStart) {
+                selectStart = timeStart;
+                selectEnd = timeEnd;
+                selectItem(item);
+            } else if (selectStart === timeStart) {
+                // todo
             } else {
-                // handel error
+                if (selectStart < timeStart) {
+                    fillTime(selectStart, timeEnd, true);
+                } else {
+                    fillTime(timeStart, selectEnd, false);
+                }
             }
+
+            // if (isFreeTime(timeStart)) {
+            //     if (!selectStart) {
+            //         selectStart = timeStart;
+            //         selectEnd = timeEnd;
+            //         selectItem(item);
+            //     } else if (selectEnd === timeStart) {
+            //         selectEnd = timeEnd;
+            //         selectItem(item);
+            //     } else if (isCanFillTime(selectEnd, timeStart)) {
+            //         fillTime(selectEnd, timeEnd);
+            //         selectEnd = timeEnd;
+            //     } else {
+            //         selectStart = timeStart;
+            //         selectEnd = timeEnd;
+            //         deselectAll();
+            //         selectItem(item);
+            //     }
+            // } else {
+            //     // handel error
+            // }
         }
 
         function dblclickItem() {
@@ -77,6 +100,11 @@
         }
 
         function isFreeTime(time) {
+            for (var i = 0; i < setting.disable.length; ++i) {
+                if (time >= setting.disable[0].start && time < setting.disable[0].end) {
+                    return false;
+                }
+            }
             return true;
         }
 
@@ -90,11 +118,40 @@
             return true;
         }
 
-        function fillTime(start, end) {
+        function fillTime(start, end, inc) {
             var step = setting.step * 60 * 1000;
-            for (var i = start + step; i <= end; i += step) {
-                selectItem(getItemByTime(i));
+            var doSelect = true;
+            var selStart = null;
+            var selEnd = null;
+            var i;
+            if (inc) {
+                selStart = start;
+                for (i = start; i < end; i += step) {
+                    if (!isFreeTime(i)) {
+                        errorItem(getItemByTime(i));
+                        doSelect = false;
+                    }
+                    if (doSelect) {
+                        selEnd = i;
+                        selectItem(getItemByTime(i));
+                    }
+                }
+            } else {
+                doSelect = false;
+                for (i = end; i > start; i -= step) {
+                    if (isFreeTime(i)) {
+                        doSelect = true;
+                        selectItem(getItemByTime(i));
+                    } else {
+                        doSelect = doSelect && false;
+                    }
+                    selectItem(getItemByTime(i));
+                }
             }
+            return {
+                start: selStart,
+                end: selEnd,
+            };
         }
 
         function getItemByTime(time) {
@@ -107,12 +164,54 @@
             });
         }
 
+        function errorItem(item) {
+            var timer = item.data("timer");
+            var timerError = item.data("timerError");
+            if (timer) {
+                clearTimeout(timer);
+            }
+            if (timerError) {
+                clearTimeout(timerError);
+            }
+            item.addClass("e");
+            item.addClass("e-a");
+            timer = setTimeout((function (item) {
+                return function () {
+                    item.removeClass("e-a");
+                    item.data("timer", null);
+                }
+            })(item), 400);
+            timerError = setTimeout((function (item) {
+                return function () {
+                    item.removeClass("e");
+                    item.data("timerError", null);
+                }
+            })(item), 1400);
+            item.data("timer", timer);
+            item.data("timerError", timerError);
+        }
+
         function selectItem(item) {
-            item.addClass("o");
+            if (item.hasClass("s")) {
+                return;
+            }
+            var timer = item.data("timer");
+            if (timer) {
+                clearTimeout(timer);
+            }
+            item.addClass("s");
+            item.addClass("s-a");
+            timer = setTimeout((function (item) {
+                return function () {
+                    item.removeClass("s-a");
+                    item.data("timer", null);
+                }
+            })(item), 300);
+            item.data("timer", timer);
         }
 
         function deselectItem(item) {
-            item.removeClass("o");
+            item.removeClass("s");
         }
 
         function formatTime(timestamp) {

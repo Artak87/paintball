@@ -33,7 +33,7 @@ const syncDataFolder = () => {
     } catch (error) {
         // log   >_<
     }
-    setTimeout(() => syncDataFolder(), 10 * 1000);
+    setTimeout(() => syncDataFolder(), 30 * 60 * 1000);
 };
 
 syncDataFolder();

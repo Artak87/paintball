@@ -1,6 +1,6 @@
 jQuery(document).ready(function ($) {
 
-    var step = 30;
+    var step = 10;
     var playersNumberElement = $(".group-number").groupNumber();
     var startTimeElement = $(".group-number-time").groupNumberTime({
         step: step
@@ -28,13 +28,6 @@ jQuery(document).ready(function ($) {
         priceElement.calculate(playersNumber, duration, startTime);
     }
     calculatePrice();
-
-
-
-
-
-
-
 
     $(".time-list li span").click(function () {
         var element = $(this);

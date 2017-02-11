@@ -61,11 +61,13 @@ jQuery(document).ready(function ($) {
 
 
     $("#show").click(function () {
-        $(".contactInformationGroup").show("fast");
+        $(".contactInformationGroup, .iconArrowUp").show("fast");
+        $(".iconArrowDown").hide("fast");
     });
 
     $("#hide").click(function () {
-        $(".contactInformationGroup").hide("fast");
+        $(".contactInformationGroup, .iconArrowUp").hide("fast");
+        $(".iconArrowDown").show("fast");
     });
 
     function setDuration(duration) {

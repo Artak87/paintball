@@ -735,6 +735,7 @@ footer .form-group {
 footer button.btn-primary {
     position: relative;
     top: 10px;
+    margin-bottom: 20px;
 }
 
 footer button.btn-primary:focus {

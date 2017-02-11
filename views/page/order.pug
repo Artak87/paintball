@@ -11,13 +11,13 @@ block content
         .row.p-0
             .col-md-8
                 form
-                    .button-show-hide.pull-right
-                        span#show.badge.badge-default
-                            i.fa.fa-plus(aria-hidden='true')
-                        span#hide.badge.badge-default
-                            i.fa.fa-minus(aria-hidden='true')
                     fieldset.form-group
                         legend Contact Information
+                            .button-show-hide.pull-right
+                                a#show.iconArrowDown.badge.badge-default
+                                    i.fa.fa-arrow-down(aria-hidden='true')
+                                a#hide.iconArrowUp.badge.badge-default
+                                    i.fa.fa-arrow-up(aria-hidden='true')
                         .contactInformationGroup
                             .form-group.row.p-0
                                 label.col-md-3.col-form-label(for='fullname') Name

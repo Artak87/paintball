@@ -14,6 +14,7 @@ function mainInfo(user) {
             displayName: "",
             email: "",
             phone: "",
+            picture: "",
         };
     }
 
@@ -24,6 +25,7 @@ function mainInfo(user) {
             displayName: "",
             email: "",
             phone: "",
+            picture: "",
         };
     }
 
@@ -42,6 +44,7 @@ function mainInfo(user) {
         displayName: userData.nickname || userData.displayName || "",
         email: email,
         phone: phone,
+        picture: userData.picture,
     };
 }
 

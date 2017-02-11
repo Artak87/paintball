@@ -1444,3 +1444,48 @@ ul.dropdown-menu {
     border-color: #ffcd55;
     color: #9e9ba8;;
 }
+
+
+.user-block h2 {
+    border-top: 1px solid #cecece;
+    position: relative;
+    top: 60px;
+}
+
+.user-block h2 span {
+    background-color: white;
+    padding: 0 30px;
+    position: relative;
+    bottom: 25px;
+}
+
+
+.user-block h4 {
+    text-align: center;
+}
+
+.user-block p {
+    text-align: center;
+}
+
+.user-block img {
+    padding: 10px;
+}
+
+
+.sing-out {
+    color: #ABAFAF;
+    margin: auto 1rem;
+}
+
+.sing-out:hover{
+    color: #ffcd55;
+}
+
+.sing-out:focus {
+    color: #ffcd55;
+}
+
+.user-img {
+    border: 1px solid #ffcd55;
+}

@@ -32,12 +32,17 @@ router.get('/about', function(req, res, next) {
 
 
 router.get('/news', function(req, res, next) {
-    res.render('page/sidebar-1', { title: 'Sidebar', env: env });
+    res.render('page/blog-news', { title: 'Blog-news', env: env });
 });
 
 
 router.get('/rule', function(req, res, next) {
-    res.render('page/blog-news', { title: 'Blog-news', env: env });
+    res.render('page/sidebar', { title: 'Sidebar', env: env });
+});
+
+
+router.get('/privat-office', function(req, res, next) {
+    res.render('page/sidebar-1', { title: 'Sidebar-1', env: env });
 });
 
 

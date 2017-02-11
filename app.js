@@ -81,7 +81,7 @@ app.locals.env = {
 
 app.use((req, res, next) => {
     res.locals.paths = req.path.substr(1).split("/");
-    res.locals.isAuthenticated = req.isAuthenticated;
+    res.locals.isAuthenticated = req.isAuthenticated();
     res.locals.user = userService.mainInfo(req.user);
     next()
 });

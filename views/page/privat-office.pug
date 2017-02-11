@@ -1,0 +1,24 @@
+extends ../layout
+include ../block/order-card
+
+block before
+    link(rel='stylesheet', href='/stylesheets/order-card.css')
+block after
+
+block content
+    .container.user-block
+        h2.text-center
+            span about user
+        .row
+            .col-sd-4
+                .card(style='width: 20rem;')
+                    img.rounded-circle.w-100(src='/images/post/post1.jpg', alt='Card image cap')
+                    .card-block
+                        h4.card-title Card title
+                        p.card-text
+                            | Some quick.
+                        a.btn.btn-success.w-100(href='#') Go somewhere
+
+            section.col-md-8.pull-left.main-content
+                +orderCatd("info")
+                +orderCatd("success")

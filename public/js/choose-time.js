@@ -60,16 +60,6 @@ jQuery(document).ready(function ($) {
     }
 
 
-    $("#show").click(function () {
-        $(".contactInformationGroup, .iconArrowUp").show("fast");
-        $(".iconArrowDown").hide("fast");
-    });
-
-    $("#hide").click(function () {
-        $(".contactInformationGroup, .iconArrowUp").hide("fast");
-        $(".iconArrowDown").show("fast");
-    });
-
     function setDuration(duration) {
         var hour = parseInt(duration / 60);
         var minute = parseInt(duration % 60);

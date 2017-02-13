@@ -69,7 +69,7 @@
                 if (selectStart < timeStart) {
                     fillTime(selectStart, timeEnd, true);
                 } else {
-                    fillTime(timeStart, selectEnd, false);
+                    fillTime(selectEnd, timeStart, false);
                 }
             }
 
@@ -137,15 +137,15 @@
                     }
                 }
             } else {
-                doSelect = false;
-                for (i = end; i > start; i -= step) {
-                    if (isFreeTime(i)) {
-                        doSelect = true;
-                        selectItem(getItemByTime(i));
-                    } else {
-                        doSelect = doSelect && false;
+                for (i = start - step; i >= end; i -= step) {
+                    if (!isFreeTime(i)) {
+                        errorItem(getItemByTime(i));
+                        doSelect = false;
                     }
-                    selectItem(getItemByTime(i));
+                    if (doSelect) {
+                        selEnd = i;
+                        selectItem(getItemByTime(i));
+                    }
                 }
             }
             return {

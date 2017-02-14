@@ -51,6 +51,11 @@ jQuery(document).ready(function ($) {
         calculatePrice();
     });
 
+    $("#deselectAll").click(function () {
+        timeList.deselectAll();
+        return false;
+    });
+
     function _calculatePrice() {
         var duration = parseInt($("#duration").val());
         var playersNumber = parseInt($("#playersNumber").val()) ;

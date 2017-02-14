@@ -43,7 +43,6 @@
                     li.data('timeEnd', timeEnd);
 
                     li.click(clickItem);
-                    li.dblclick(dblclickItem);
 
                     items[timeStart] = li;
 
@@ -95,23 +94,9 @@
             // }
         }
 
-        function dblclickItem() {
-            var item = $(this);
-        }
-
         function isFreeTime(time) {
             for (var i = 0; i < setting.disable.length; ++i) {
                 if (time >= setting.disable[0].start && time < setting.disable[0].end) {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        function isCanFillTime(start, end) {
-            var step = setting.step * 60 * 1000;
-            for (var i = start; i <= end; i += step) {
-                if (!isFreeTime(i)) {
                     return false;
                 }
             }
@@ -159,9 +144,9 @@
         }
 
         function deselectAll() {
-            items.forEach(function() {
-                deselectItem(item);
-            });
+            for(var key in items) {
+                deselectItem(items[key]);
+            }
         }
 
         function errorItem(item) {
@@ -242,6 +227,11 @@
 
         render();
 
+        el.deselectAll = function () {
+            selectStart = null;
+            selectEnd = null;
+            deselectAll();
+        };
 
         return el;
     }

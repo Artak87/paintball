@@ -1,55 +1,85 @@
 jQuery(document).ready(function ($) {
 
-    $('#submit-button').click(function () {
-        validatorForm()
+    $('#contact-form').submit(function () {
+        var isValid = true;
+
+        $(this).find('.form-group').each(function() {
+            var formGroup = $(this);
+            var input = formGroup.find("input,textarea");
+            if (!checkValidation(input)) {
+                isValid = false;
+                showDanger(formGroup, input[0].validationMessage);
+            } else {
+                hideDanger(formGroup);
+            }
+        });
+
+        return isValid;
     });
 
-    function validatorForm() {
+    function checkValidation(input) {
+        return input[0].checkValidity();
+    }
 
-        var nameReg = /^[A-Za-z]+$/;
-        var numberReg =  /^[0-9]+$/;
-        var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+    // function validatorForm() {
+    //
+    //     var nameReg = /^[A-Za-z]+$/;
+    //     var emailReg = /^([\w\-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+    //
+    //     var names = $('#name').val();
+    //     var company = $('#subject').val();
+    //     var email = $('#email').val();
+    //     var message = $('#message').val();
+    //
+    //     var inputVal = [names, company, email, message];
+    //
+    //     var inputMessage = ["name", "company", "email address", "message"];
+    //
+    //     $('.error').hide();
+    //
+    //     if(inputVal[0] == ""){
+    //         $('#name').after('<span class="error"> Please enter your ' + inputMessage[0] + '</span>');
+    //     }
+    //     else if(!nameReg.test(names)){
+    //         $('#name').after('<span class="error"> Letters only</span>');
+    //     }
+    //
+    //     if(inputVal[1] == ""){
+    //         $('#subject').after('<span class="error"> Please enter your ' + inputMessage[1] + '</span>');
+    //     }
+    //
+    //     if(inputVal[2] == ""){
+    //         $('#email').after('<span class="error"> Please enter your ' + inputMessage[2] + '</span>');
+    //     }
+    //     else if(!emailReg.test(email)){
+    //         $('#email').after('<span class="error"> Please enter a valid email address</span>');
+    //     }
+    //
+    //
+    //     if(inputVal[3] == ""){
+    //         $('#message').after('<span class="error"> Please enter your ' + inputMessage[3] + '</span>');
+    //     }
+    //
+    //     return true;
+    // }
 
-        var names = $('#nameInput').val();
-        var company = $('#companyInput').val();
-        var email = $('#emailInput').val();
-        var telephone = $('#telInput').val();
-        var message = $('#messageInput').val();
-
-        var inputVal = new Array(names, company, email, telephone, message);
-
-        var inputMessage = new Array("name", "company", "email address", "telephone number", "message");
-
-        $('.error').hide();
-
-        if(inputVal[0] == ""){
-            $('#nameLabel').after('<span class="error"> Please enter your ' + inputMessage[0] + '</span>');
+    function showDanger(formGroup, text) {
+        formGroup.addClass('has-danger');
+        var formControl = formGroup.find('.form-control');
+        var feedback = formGroup.find('.form-control-feedback');
+        if (!feedback.length) {
+            formControl.after('<div class="form-control-feedback" style="display: none;"></div>');
+            feedback = formGroup.find('.form-control-feedback');
         }
-        else if(!nameReg.test(names)){
-            $('#nameLabel').after('<span class="error"> Letters only</span>');
-        }
+        feedback.text(text);
+        formControl.addClass('form-control-danger');
+        feedback.show("slow");
+    }
 
-        if(inputVal[1] == ""){
-            $('#companyLabel').after('<span class="error"> Please enter your ' + inputMessage[1] + '</span>');
-        }
-
-        if(inputVal[2] == ""){
-            $('#emailLabel').after('<span class="error"> Please enter your ' + inputMessage[2] + '</span>');
-        }
-        else if(!emailReg.test(email)){
-            $('#emailLabel').after('<span class="error"> Please enter a valid email address</span>');
-        }
-
-        if(inputVal[3] == ""){
-            $('#telephoneLabel').after('<span class="error"> Please enter your ' + inputMessage[3] + '</span>');
-        }
-        else if(!numberReg.test(telephone)){
-            $('#telephoneLabel').after('<span class="error"> Numbers only</span>');
-        }
-
-        if(inputVal[4] == ""){
-            $('#messageLabel').after('<span class="error"> Please enter your ' + inputMessage[4] + '</span>');
-        }
+    function hideDanger(formGroup) {
+        formGroup.removeClass('has-danger');
+        formGroup.find('.form-control').removeClass('form-control-danger');
+        formGroup.find('.form-control-feedback').remove();
     }
 
 

@@ -19,14 +19,14 @@ block content
                         br
                         p#feedback
                         .container
-                            form#contact-form.contact-form(role='form', name='contact-form', method='post', action='')
+                            form#contact-form.contact-form(role='form', name='contact-form', method='post', action='', novalidate='novalidate')
                                 .row.p-0
                                     .form-group.col-md-6
                                         label.sr-only(for='name') Your Name: *
-                                        input#name.form-control(required, type='text', name='name', placeholder='Your Name: *')
+                                        input#name.form-control(required, type='text', name='name', placeholder='Your Name: *', value=user.displayName)
                                     .form-group.col-md-6
                                         label.sr-only(for='email') Email: *
-                                        input#email.form-control(required, type='email', name='email', placeholder='Email: *')
+                                        input#email.form-control(required, type='email', name='email', placeholder='Email: *',value=user.email)
                                 .clearfix
                                 .form-group
                                     label.sr-only(for='subject') Subject:

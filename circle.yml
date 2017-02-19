@@ -35,4 +35,5 @@ deployment:
       - docker rm paintball
       - docker rmi paintball:v0.1
       - docker build -t paintball:v0.1 .
-      - docker run --name paintball -p 80:8080 -p 443:8443 -t paintball:v0.1
+#      - docker run --name paintball -p 80:8080 -p 443:8443 -t paintball:v0.1
+      - docker run --name paintball -p 3010:3000 -t paintball:v0.1

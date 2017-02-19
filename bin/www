@@ -9,20 +9,20 @@ if (!fs.existsSync('./data')) {
 
 const app = require('../app');
 
-if (process.env.NODE_ENV === 'production') {
-    require('letsencrypt-express').create({
-        server: 'https://acme-v01.api.letsencrypt.org/directory',
-        email: process.env.LETSENCRYPT_EMAIL,
-        agreeTos: true,
-        approveDomains: [
-            process.env.LETSENCRYPT_DOMAIN
-        ],
-        app: app
-    }).listen(8080, 8443);
-} else {
+// if (process.env.NODE_ENV === 'production') {
+//     require('letsencrypt-express').create({
+//         server: 'https://acme-v01.api.letsencrypt.org/directory',
+//         email: process.env.LETSENCRYPT_EMAIL,
+//         agreeTos: true,
+//         approveDomains: [
+//             process.env.LETSENCRYPT_DOMAIN
+//         ],
+//         app: app
+//     }).listen(8080, 8443);
+// } else {
     app.listen(3000);
     console.log('Listening on http://localhost:3000');
-}
+// }
 
 
 const syncDataFolder = () => {

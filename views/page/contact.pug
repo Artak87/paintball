@@ -20,6 +20,8 @@ block content
                         p#feedback
                         .container
                             form#contact-form.contact-form(role='form', name='contact-form', method='post', action='', novalidate='novalidate')
+                                .loading.text-center
+                                    i.fa.fa-spinner.fa-pulse.fa-3x(style="margin-top:16%")
                                 .row.p-0
                                     .form-group.col-md-6
                                         label.sr-only(for='name') Your Name: *
@@ -33,7 +35,14 @@ block content
                                     input#subject.form-control(type='text', name='subject', placeholder='Subject:')
                                 .form-group
                                     textarea#message.form-control(required, name='message', rows='5', placeholder='Message: *')
+                                .errorBox
                                 input#submit-button.btn.btn-success.btn-lg(type='submit', value='Submit')
+                            #contact-form-success-message.row(style='display: none;')
+                                .col
+                                    h1.display-2.text-center.text-success
+                                        i.fa.fa-fw.fa-check-circle-o.mr-3
+                                        | message successfully sent
+
                     .col-md-4
                         h3 Get in touch with us
                         hr

@@ -1,9 +1,15 @@
 jQuery(document).ready(function ($) {
 
-    $('#contact-form').submit(function () {
-        var isValid = true;
+    var form = $('#contact-form');
+    var loadingForm = form.find(".loading");
 
-        $(this).find('.form-group').each(function() {
+    form.submit(function (event) {
+        event.preventDefault();
+
+        var isValid = true;
+        var message = {};
+
+        form.find('.form-group').each(function() {
             var formGroup = $(this);
             var input = formGroup.find("input,textarea");
             if (!checkValidation(input)) {
@@ -12,56 +18,42 @@ jQuery(document).ready(function ($) {
             } else {
                 hideDanger(formGroup);
             }
+            message[input.prop("name")] = input.val();
         });
-
-        return isValid;
+        if (isValid) {
+            sendMessage(message);
+        }
     });
+
+    function sendMessage(message) {
+        $.ajax({
+            url: '/contact',
+            method: 'POST',
+            contentType: 'application/json; charset=UTF-8',
+            data: JSON.stringify({
+                message: message,
+            }),
+            dataType: 'json',
+            success: function (res) {
+                form.fadeOut('fast', function () {
+                    $('#contact-form-success-message').fadeIn('fast');
+                });
+            },
+            error: function (err) {
+                $(".errorBox").text("An error occurred");
+            },
+            beforeSend: function () {
+                loadingForm.fadeIn('fast');
+            },
+            complete: function () {
+                loadingForm.fadeOut('fast');
+            },
+        });
+    }
 
     function checkValidation(input) {
         return input[0].checkValidity();
     }
-
-    // function validatorForm() {
-    //
-    //     var nameReg = /^[A-Za-z]+$/;
-    //     var emailReg = /^([\w\-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
-    //
-    //     var names = $('#name').val();
-    //     var company = $('#subject').val();
-    //     var email = $('#email').val();
-    //     var message = $('#message').val();
-    //
-    //     var inputVal = [names, company, email, message];
-    //
-    //     var inputMessage = ["name", "company", "email address", "message"];
-    //
-    //     $('.error').hide();
-    //
-    //     if(inputVal[0] == ""){
-    //         $('#name').after('<span class="error"> Please enter your ' + inputMessage[0] + '</span>');
-    //     }
-    //     else if(!nameReg.test(names)){
-    //         $('#name').after('<span class="error"> Letters only</span>');
-    //     }
-    //
-    //     if(inputVal[1] == ""){
-    //         $('#subject').after('<span class="error"> Please enter your ' + inputMessage[1] + '</span>');
-    //     }
-    //
-    //     if(inputVal[2] == ""){
-    //         $('#email').after('<span class="error"> Please enter your ' + inputMessage[2] + '</span>');
-    //     }
-    //     else if(!emailReg.test(email)){
-    //         $('#email').after('<span class="error"> Please enter a valid email address</span>');
-    //     }
-    //
-    //
-    //     if(inputVal[3] == ""){
-    //         $('#message').after('<span class="error"> Please enter your ' + inputMessage[3] + '</span>');
-    //     }
-    //
-    //     return true;
-    // }
 
     function showDanger(formGroup, text) {
         formGroup.addClass('has-danger');
@@ -81,7 +73,5 @@ jQuery(document).ready(function ($) {
         formGroup.find('.form-control').removeClass('form-control-danger');
         formGroup.find('.form-control-feedback').remove();
     }
-
-
 
 });

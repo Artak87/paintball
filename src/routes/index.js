@@ -1,5 +1,6 @@
 const express = require('express');
 const passport = require('passport');
+const messageService = require("../service/message-service");
 const router = express.Router();
 
 const env = {
@@ -24,6 +25,14 @@ router.get('/order', function(req, res, next) {
 
 router.get('/contact', function(req, res, next) {
     res.render('page/contact', { title: 'Contact', env: env });
+});
+
+
+router.post('/contact', function(req, res, next) {
+    messageService.create(req.body['message']);
+    res.send({
+        message: "success",
+    });
 });
 
 router.get('/about', function(req, res, next) {

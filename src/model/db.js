@@ -7,6 +7,7 @@ db.defaults({
     users: [],
     orders: [],
     news: [],
+    messages: [],
 }).value();
 
 module.exports.db = db;

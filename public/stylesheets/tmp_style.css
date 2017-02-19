@@ -1490,3 +1490,14 @@ ul.dropdown-menu {
 .user-img {
     border: 1px solid #ffcd55;
 }
+
+.loading {
+    display: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    background-color: rgba(245, 245, 245, 0.5);
+}

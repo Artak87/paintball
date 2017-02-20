@@ -164,6 +164,16 @@ p.big-paragraph {
     text-transform: uppercase;
 }
 
+.grey-info-block .btn.btn-default:focus {
+    -webkit-box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, .5);
+}
+
+.grey-info-block .btn.btn-info:focus {
+    -webkit-box-shadow: 0 0 0 2px rgba(255, 205, 85, 0.5);
+    box-shadow: 0 0 0 2px rgba(255, 205, 85, .5);
+}
+
 /* Recent Posts */
 .recent-posts h2 {
     border-top: 1px solid #cecece;
@@ -368,6 +378,11 @@ ul.dropdown-menu > li > a:hover {
     color: #444c4c;
 }
 
+.btn-primary:focus {
+    -webkit-box-shadow: 0 0 0 2px rgba(255, 205, 85, .5);
+    box-shadow: 0 0 0 2px rgba(255, 205, 85, .5);
+}
+
 .btn-success, .btn-success:active, .btn-success:focus {
     background-color: #fff;
     border-color: #d3d3d3;
@@ -401,6 +416,11 @@ footer .btn-primary:hover {
     background-color: transparent;
     border-color: #838889;
     color: #fff;
+}
+
+footer .btn-primary:focus {
+    -webkit-box-shadow: 0 0 0 2px rgba(255, 205, 85, .5);
+    box-shadow: 0 0 0 2px rgba(255, 205, 85, .5);
 }
 
 .btn-info, .btn-info:hover, .btn-info:focus, .btn-info:active {

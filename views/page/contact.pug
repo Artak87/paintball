@@ -35,7 +35,9 @@ block content
                                     input#subject.form-control(type='text', name='subject', placeholder='Subject:')
                                 .form-group
                                     textarea#message.form-control(required, name='message', rows='5', placeholder='Message: *')
-                                .errorBox
+                                .errorBox.alert.alert-danger(role='alert', style='display: none;')
+                                    strong Oh snap!
+                                    |  Change a few things up and try submitting again.
                                 input#submit-button.btn.btn-success.btn-lg(type='submit', value='Submit')
                             #contact-form-success-message.row(style='display: none;')
                                 .col

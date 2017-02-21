@@ -40,7 +40,7 @@ jQuery(document).ready(function ($) {
                 });
             },
             error: function (err) {
-                $(".errorBox").text("An error occurred");
+                $(".errorBox").fadeIn('fast');//.text("An error occurred");
             },
             beforeSend: function () {
                 loadingForm.fadeIn('fast');

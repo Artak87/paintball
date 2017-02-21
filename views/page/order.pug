@@ -11,25 +11,28 @@ block content
         .row.p-0
             .col-md-8
                 form
-                    fieldset.form-group
+                form#order-form.contact-form(role='form', name='contact-form', method='post', action='', novalidate='novalidate')
+                    fieldset
                         legend Contact Information
                             .button-show-hide.pull-right(data-toggle='group-collapse', data-target='.contactInformationGroup', data-icon-target='#group-collapse-icon')
                                 a(href="#")
                                     i#group-collapse-icon.fa.fa-fw.fa-angle-up
                         .contactInformationGroup
+                            .loading.text-center
+                                i.fa.fa-spinner.fa-pulse.fa-3x(style="margin-top:16%")
                             .form-group.row.p-0
                                 label.col-md-3.col-form-label(for='fullname') Name
                                 .col-md-9
-                                    input#fullname.form-control(type='text', name='fullname', value=user.displayName)
+                                    input#fullname.form-control(required, type='text', name='fullname',placeholder='Your Name: *', value=user.displayName)
                             .form-group.row.p-0
                                 label.col-md-3.col-form-label(for='email') Email
                                 .col-md-9
-                                    input#email.form-control(type='email', name='email', value=user.email)
+                                    input#email.form-control(required, type='email', name='email',placeholder='Email: *', value=user.email)
                             .form-group.row.p-0
                                 label.col-md-3.col-form-label(for='phone') Phone Number
                                 .col-md-9
-                                    input#phone.form-control(type='tel', name='phone', value=user.phone)
-                    fieldset.form-group
+                                   input#phone.form-control(required, type='tel', name='phone',placeholder='tel: *', value=user.phone)
+                    fieldset
                         legend Time Information
                         .form-group.row.p-0
                             label.col-sm-6.col-md-5.col-form-label(for='playersNumber') Number of Players
@@ -58,13 +61,16 @@ block content
                                     input#duration.form-control(type='text', name='duration', autocomplete='off')
                                     button.btn.input-group-addon(type='button')
                                         i.fa.fa-plus(aria-hidden='true')
-                        .form-group.row.p-0
+                        .row.p-0
                             label.col-sm-6.col-md-5.col-form-label(for='price') Price
                             .col-sm-6.col-md-5
                                 #price.price(type='text')
                                     h4
                                         i.fa.fa-dollar
                                         strong.price-value(data-default='0.00')
+                    .row.p-0.mb-3
+                        .col
+                            input#submit-button.btn.btn-success.btn-lg.pull-right(type='submit', value='Submit')
             .col-md-4
                 #time-list.noselect.time-list.text-center
                 //ul.time-list
@@ -122,4 +128,4 @@ block content
                 //        span.badge.badge-success(data-duration='30')  6:30 pm
 
                 a#deselectAll(href="#")
-                    i.fa.fa-fw.fa-bath.pull-right.mt-3(aria-hidden='true')
+                    i.fa.fa-fw.fa-times.pull-right.mt-3(aria-hidden='true')

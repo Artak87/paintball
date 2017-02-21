@@ -634,6 +634,17 @@ button.btn-primary:focus {
     height: 44px;
 }
 
+a {
+    color: #ffcd55;
+}
+
+a:focus {
+    color: #ffcd55;
+}
+
+a:hover {
+    color: #ffcd55;
+}
 .socialicon-twitter {
     color: #eef2f2;
 }
@@ -1521,3 +1532,4 @@ ul.dropdown-menu {
     z-index: 1;
     background-color: rgba(245, 245, 245, 0.5);
 }
+

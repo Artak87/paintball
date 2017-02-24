@@ -1,6 +1,7 @@
 const express = require('express');
 const passport = require('passport');
 const messageService = require("../service/message-service");
+const orderService = require("../service/order-service");
 const router = express.Router();
 
 const env = {
@@ -19,6 +20,13 @@ router.get('/', function (req, res, next) {
 router.get('/order', function(req, res, next) {
     res.render('page/order', {
         title: 'Order',
+    });
+});
+
+router.post('/order', function(req, res, next) {
+    orderService.create(req.body['order']);
+    res.send({
+        message: "success",
     });
 });
 

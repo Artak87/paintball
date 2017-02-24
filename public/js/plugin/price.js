@@ -33,8 +33,9 @@
             var k = priceForMinute();
             var price = playersNumber * duration * k;
 
-
-
+            if (setting.input) {
+                setting.input.val(price);
+            }
             el.showPrice(price);
         };
 

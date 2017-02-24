@@ -1,5 +1,5 @@
-const news = requier("../model/news").news;
-const uuid = requier("uuid/v4");
+const news = require("../model/news").news;
+const uuid = require("uuid/v4");
 
 export function saveNews(newsData) {
     if (!newsData.id) {
@@ -23,3 +23,7 @@ export function findNews(skip = 0, limit = 10, sort = 'createdAt', filter = {}) 
 
     return {totalCount: totalCount, data: data}
 }
+
+module.exports.saveNews = saveNews;
+module.exports.getNewsById = getNewsById;
+module.exports.findNews = findNews;

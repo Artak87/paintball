@@ -19,6 +19,9 @@
             return false;
         });
 
+        targetElement.on('group-collapse.open', open);
+        targetElement.on('group-collapse.close', close);
+
         function init() {
             if (settings.expanded) {
                 targetElement.animate({

@@ -9,7 +9,8 @@ jQuery(document).ready(function ($) {
         step: step
     });
     var priceElement = $("#price").price({
-        hour: 5
+        hour: 5,
+        input: $("input[name='price']")
     });
     var timeList = $("#time-list").timeList({
         step: step
@@ -51,7 +52,7 @@ jQuery(document).ready(function ($) {
         calculatePrice();
     });
 
-    $("#deselectAll").click(function () {
+    $("#deselect-all").click(function () {
         timeList.deselectAll();
         return false;
     });

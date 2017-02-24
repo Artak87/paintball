@@ -1,7 +1,7 @@
-const order = requier("../model/order").order;
-const uuid = requier("uuid/v4");
+const order = require("../model/order").order;
+const uuid = require("uuid/v4");
 
-export function saveOrder(orderData) {
+function saveOrder(orderData) {
     if (!orderData.id) {
         orderData.id = uuid();
         orderData.createdAt = new Date();
@@ -9,11 +9,11 @@ export function saveOrder(orderData) {
     order.push(orderData).value();
 }
 
-export function getOrderById(id) {
+function getOrderById(id) {
     return order.find({id: id}).value();
 }
 
-export function findOrders(skip = 0, limit = 10, sort = 'createdAt', filter = {}) {
+function findOrders(skip = 0, limit = 10, sort = 'createdAt', filter = {}) {
     const totalCount = order.size().value();
 
     const data = order.filter(filter)
@@ -23,3 +23,7 @@ export function findOrders(skip = 0, limit = 10, sort = 'createdAt', filter = {}
 
     return {totalCount: totalCount, data: data}
 }
+
+module.exports.saveOrder = saveOrder;
+module.exports.getOrderById = getOrderById;
+module.exports.findOrders = findOrders;

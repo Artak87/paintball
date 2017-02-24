@@ -2,13 +2,14 @@ jQuery(document).ready(function ($) {
 
     var form = $('#order-form');
     var loadingForm = form.find(".loading");
+    var contactInformationGroup = form.find(".contactInformationGroup");
     var isFirstTime = true;
 
     form.submit(function (event) {
         event.preventDefault();
 
         var isValid = true;
-        var message = {};
+        var orderData = {};
 
         form.find('.form-group').each(function() {
             var formGroup = $(this);
@@ -16,6 +17,9 @@ jQuery(document).ready(function ($) {
             if (!checkValidation(input)) {
                 isValid = false;
                 showDanger(formGroup, input[0].validationMessage);
+                if (['fullname', 'email', 'phone'].indexOf(input[0].name) !== -1) {
+                    'group-collapse.open'
+                }
             } else {
                 hideDanger(formGroup);
             }
@@ -28,22 +32,22 @@ jQuery(document).ready(function ($) {
                     }
                 });
             }
-            message[input.prop("name")] = input.val();
+            orderData[input.prop("name")] = input.val();
         });
 
         if (isValid) {
-            sendMessage(message);
+            createOrder(orderData);
         }
         isFirstTime = false;
     });
 
-    function sendMessage(message) {
+    function createOrder(orderData) {
         $.ajax({
             url: '/order',
             method: 'POST',
             contentType: 'application/json; charset=UTF-8',
             data: JSON.stringify({
-                message: message,
+                order: orderData,
             }),
             dataType: 'json',
             success: function (res) {
@@ -52,7 +56,7 @@ jQuery(document).ready(function ($) {
                 });
             },
             error: function (err) {
-                $(".errorBox").text("An error occurred");
+                $("#order-form-error-message").text("An error occurred");
             },
             beforeSend: function () {
                 loadingForm.fadeIn('fast');

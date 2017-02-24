@@ -10,7 +10,6 @@ block content
                 h2 2017.02.24
         .row.p-0
             .col-md-8
-                form
                 form#order-form.contact-form(role='form', name='contact-form', method='post', action='', novalidate='novalidate')
                     fieldset
                         legend Contact Information
@@ -18,20 +17,18 @@ block content
                                 a(href="#")
                                     i#group-collapse-icon.fa.fa-fw.fa-angle-up
                         .contactInformationGroup
-                            .loading.text-center
-                                i.fa.fa-spinner.fa-pulse.fa-3x(style="margin-top:16%")
                             .form-group.row.p-0
-                                label.col-md-3.col-form-label(for='fullname') Name
+                                label.col-md-3.col-form-label(for='fullname') Name *
                                 .col-md-9
-                                    input#fullname.form-control(required, type='text', name='fullname',placeholder='Your Name: *', value=user.displayName)
+                                    input#fullname.form-control(required, type='text', name='fullname',placeholder='Your Name', value=user.displayName)
                             .form-group.row.p-0
-                                label.col-md-3.col-form-label(for='email') Email
+                                label.col-md-3.col-form-label(for='email') Email *
                                 .col-md-9
-                                    input#email.form-control(required, type='email', name='email',placeholder='Email: *', value=user.email)
+                                    input#email.form-control(required, type='email', name='email',placeholder='Email', value=user.email)
                             .form-group.row.p-0
-                                label.col-md-3.col-form-label(for='phone') Phone Number
+                                label.col-md-3.col-form-label(for='phone') Phone Number *
                                 .col-md-9
-                                   input#phone.form-control(required, type='tel', name='phone',placeholder='tel: *', value=user.phone)
+                                   input#phone.form-control(required, type='tel', name='phone',placeholder='tel', value=user.phone)
                     fieldset
                         legend Time Information
                         .form-group.row.p-0
@@ -70,7 +67,17 @@ block content
                                         strong.price-value(data-default='0.00')
                     .row.p-0.mb-3
                         .col
-                            input#submit-button.btn.btn-success.btn-lg.pull-right(type='submit', value='Submit')
+                            input#submit-button.order-button-yellow.btn.btn-success.btn-lg.pull-right(type='submit', value='Submit')
+                            // todo shinel ahavor mec dexin knopka tes/news ejum
+                .errorBox.alert.alert-danger(role='alert', style='display: block;')
+                .loading.text-center
+                    i.fa.fa-spinner.fa-pulse.fa-3x(style="margin-top:16%")
+                #order-form-success-message.row(style='display: block;')
+                    .col
+                        h1.display-2.text-center.text-success
+                            i.fa.fa-fw.fa-paypal.mr-3
+                            h5.display-4.text-center.text-success
+                                | Message successfully sent
             .col-md-4
                 #time-list.noselect.time-list.text-center
                 //ul.time-list
@@ -128,4 +135,5 @@ block content
                 //        span.badge.badge-success(data-duration='30')  6:30 pm
 
                 a#deselectAll(href="#")
-                    i.fa.fa-fw.fa-times.pull-right.mt-3(aria-hidden='true')
+                    .pull-right.m-3(aria-hidden='true')
+                        | Clear

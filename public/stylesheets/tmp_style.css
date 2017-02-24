@@ -1533,3 +1533,23 @@ ul.dropdown-menu {
     background-color: rgba(245, 245, 245, 0.5);
 }
 
+.order-button-yellow, .order-button-yellow:focus, .order-button-yellow:active {
+    background-color: #ffcd55;
+    border-color: #ffcd55;
+    color: #444c4c;
+    width: 40%;
+}
+
+.order-button-yellow:hover {
+    background-color: transparent;
+    border-color: #838889;
+    color: #838889;
+
+}
+.order-button-yellow {
+    color: #fff;
+    font-size: 20px;
+    height: 60px;
+    line-height: 60px;
+
+}

@@ -32,36 +32,36 @@ jQuery(document).ready(function ($) {
         });
 
         if (isValid) {
-            //sendMessage(message);
+            sendMessage(message);
         }
         isFirstTime = false;
     });
 
-    // function sendMessage(message) {
-    //     $.ajax({
-    //         url: '/contact',
-    //         method: 'POST',
-    //         contentType: 'application/json; charset=UTF-8',
-    //         data: JSON.stringify({
-    //             message: message,
-    //         }),
-    //         dataType: 'json',
-    //         success: function (res) {
-    //             form.fadeOut('fast', function () {
-    //                 $('#contact-form-success-message').fadeIn('fast');
-    //             });
-    //         },
-    //         error: function (err) {
-    //             $(".errorBox").text("An error occurred");
-    //         },
-    //         beforeSend: function () {
-    //             loadingForm.fadeIn('fast');
-    //         },
-    //         complete: function () {
-    //             loadingForm.fadeOut('fast');
-    //         },
-    //     });
-    // }
+    function sendMessage(message) {
+        $.ajax({
+            url: '/order',
+            method: 'POST',
+            contentType: 'application/json; charset=UTF-8',
+            data: JSON.stringify({
+                message: message,
+            }),
+            dataType: 'json',
+            success: function (res) {
+                form.fadeOut('fast', function () {
+                    $('#order-form-success-message').fadeIn('fast');
+                });
+            },
+            error: function (err) {
+                $(".errorBox").text("An error occurred");
+            },
+            beforeSend: function () {
+                loadingForm.fadeIn('fast');
+            },
+            complete: function () {
+                loadingForm.fadeOut('fast');
+            },
+        });
+    }
 
     function checkValidation(input) {
         return input[0].checkValidity();

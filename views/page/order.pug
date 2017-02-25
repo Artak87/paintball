@@ -6,10 +6,18 @@ block after
 block content
     .container
         .row.p-0
-            .col-12
-                h2 2017.02.24
+            .col-12.mt-2
+                .btn-toolbar(role='toolbar')
+                    .btn-group(role='group')
+                        button.btn.btn-secondary(type='button')
+                            i.fa.fa-chevron-left(aria-hidden='true')
+                        button.btn.btn-secondary(type='button')
+                            i.fa.fa-chevron-right(aria-hidden='true')
+                    .btn-group(role='group')
+                        button.btn.btn-secondary.ml-3(type='button') today
+                    h2.mt-auto.ml-5 2017.02.24
         .row.p-0
-            .col-md-8
+            .col-lg-8
                 form#order-form.contact-form(role='form', name='contact-form', method='post', action='', novalidate='novalidate')
                     .loading.text-center
                         i.fa.fa-spinner.fa-pulse.fa-3x(style="margin-top:16%")
@@ -79,7 +87,7 @@ block content
                             i.fa.fa-fw.fa-paypal.mr-3
                             h5.display-4.text-center.text-success
                                 | Message successfully sent
-            .col-md-4
+            .col-lg-4
                 #time-list.noselect.time-list.text-center
                 //ul.time-list
                 //    li

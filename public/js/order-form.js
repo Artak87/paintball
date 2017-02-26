@@ -18,7 +18,7 @@ jQuery(document).ready(function ($) {
                 isValid = false;
                 showDanger(formGroup, input[0].validationMessage);
                 if (['fullname', 'email', 'phone'].indexOf(input[0].name) !== -1) {
-                    'group-collapse.open'
+                    contactInformationGroup.trigger('group-collapse.open');
                 }
             } else {
                 hideDanger(formGroup);

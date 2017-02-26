@@ -48,7 +48,6 @@
             } else {
                 open();
             }
-            settings.expanded = !settings.expanded;
         }
 
         function open() {
@@ -59,6 +58,7 @@
                 duration: 'fast'
             });
             iconTargetElement.removeClass('fa-rotate-90');
+            settings.expanded = true;
         }
 
         function close() {
@@ -69,6 +69,7 @@
                 duration: 'fast'
             });
             iconTargetElement.addClass('fa-rotate-90');
+            settings.expanded = false;
         }
 
     };

@@ -9,7 +9,6 @@ jQuery(document).ready(function ($) {
         event.preventDefault();
 
         var isValid = true;
-        var orderData = {};
 
         form.find('.form-group').each(function() {
             var formGroup = $(this);
@@ -32,13 +31,19 @@ jQuery(document).ready(function ($) {
                     }
                 });
             }
-            orderData[input.prop("name")] = input.val();
         });
 
+        isFirstTime = false;
+
         if (isValid) {
+            var orderData = {};
+            form.find("input,textarea").each(function () {
+                if (this.name) {
+                    orderData[this.name] = $(this).val();
+                }
+            });
             createOrder(orderData);
         }
-        isFirstTime = false;
     });
 
     function createOrder(orderData) {

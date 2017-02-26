@@ -66,11 +66,12 @@ app.use(helmet());
 
 
 app.locals.mainMenu = [
-    {path: '/',        title: 'Home'},
-    {path: '/about',   title: 'About us'},
-    {path: '/rule',    title: 'Rules'},
-    {path: '/news',    title: 'News'},
-    {path: '/contact', title: 'Contact us'},
+    {path: '/',               title: 'Home'},
+    {path: '/about',          title: 'About us'},
+    {path: '/rule',           title: 'Rules'},
+    {path: '/news',           title: 'News'},
+    {path: '/private-office', title: 'Private Office', role: 'user'},
+    {path: '/contact',        title: 'Contact us'},
 ];
 
 app.locals.env = {

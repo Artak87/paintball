@@ -4,8 +4,9 @@ header.main__header
             #mainnavbar.collapse.navbar-center.navbar-collapse
                 ul.navbar-nav.mr-auto
                     each item in mainMenu
-                        li(class="nav-item" + ("/" + paths[0] == item.path ? " active" : ""))
-                            a.nav-link(href=item.path)= item.title
+                        if (!item.role || (item.role === 'user' && isAuthenticated))
+                            li(class="nav-item" + ("/" + paths[0] == item.path ? " active" : ""))
+                                a.nav-link(href=item.path)= item.title
                 if isAuthenticated
                     img.rounded-circle.user-img(src=user.picture, alt=user.displayName, title=user.displayName)
                     a.sing-out(href="#")

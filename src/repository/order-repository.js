@@ -13,8 +13,8 @@ function getOrderById(id) {
     return order.find({id: id}).value();
 }
 
-function findOrders(skip = 0, limit = 10, sort = 'createdAt', filter = {}) {
-    const totalCount = order.size().value();
+function findOrders(skip = 0, limit = 10, filter = {}, sort = 'createdAt') {
+    const totalCount = order.filter(filter).size().value();
 
     const data = order.filter(filter)
         .sortBy(sort)
@@ -24,6 +24,11 @@ function findOrders(skip = 0, limit = 10, sort = 'createdAt', filter = {}) {
     return {totalCount: totalCount, data: data}
 }
 
+function getUserOrders(userId, limit, skip) {
+    return findOrders(skip, limit, {userId: userId});
+}
+
 module.exports.saveOrder = saveOrder;
 module.exports.getOrderById = getOrderById;
 module.exports.findOrders = findOrders;
+module.exports.getUserOrders = getUserOrders;

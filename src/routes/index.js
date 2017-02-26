@@ -2,28 +2,22 @@ const express = require('express');
 const passport = require('passport');
 const messageService = require("../service/message-service");
 const orderService = require("../service/order-service");
+const userService = require("../service/user-service");
 const router = express.Router();
-
-const env = {
-  AUTH0_CLIENT_ID: process.env.AUTH0_CLIENT_ID,
-  AUTH0_DOMAIN: process.env.AUTH0_DOMAIN,
-  AUTH0_CALLBACK_URL: process.env.AUTH0_CALLBACK_URL || 'http://localhost:3000/callback'
-};
-
 
 router.get('/', function (req, res, next) {
     res.render('page/index', {
-        title: 'Express',
+        title: 'Paintball',
     });
 });
 
-router.get('/order', function(req, res, next) {
+router.get('/order', function (req, res, next) {
     res.render('page/order', {
         title: 'Order',
     });
 });
 
-router.post('/order', function(req, res, next) {
+router.post('/order', function (req, res, next) {
     orderService.create(req.body['order']);
     res.send({
         message: "success",
@@ -31,51 +25,47 @@ router.post('/order', function(req, res, next) {
 });
 
 
-router.get('/contact', function(req, res, next) {
-    res.render('page/contact', { title: 'Contact', env: env });
+router.get('/contact', function (req, res, next) {
+    res.render('page/contact', {title: 'Contact'});
 });
 
 
-router.post('/contact', function(req, res, next) {
+router.post('/contact', function (req, res, next) {
     messageService.create(req.body['message']);
     res.send({
         message: "success",
     });
 });
 
-router.get('/about', function(req, res, next) {
-    res.render('page/sidebar', { title: 'Sidebar', env: env });
+router.get('/about', function (req, res, next) {
+    res.render('page/about', {title: 'About'});
 });
 
-
-router.get('/news', function(req, res, next) {
-    res.render('page/blog-news', { title: 'Blog-news', env: env });
+router.get('/news', function (req, res, next) {
+    res.render('page/news', {title: 'News'});
 });
 
-
-router.get('/rule', function(req, res, next) {
-    res.render('page/sidebar', { title: 'Sidebar', env: env });
+router.get('/rule', function (req, res, next) {
+    res.render('page/rule', {title: 'Rule'});
 });
 
+router.get('/private-office', function (req, res, next) {
+    const user = userService.mainInfo(req.user);
+    const orders = orderService.getUserOrders(user.id, req.query['page']);
 
-router.get('/privat-office', function(req, res, next) {
-    res.render('page/sidebar-1', { title: 'Sidebar-1', env: env });
+    res.render('page/private-office', {
+        title: 'Private-Office',
+        orders: orders,
+    });
 });
 
-
-router.get('/signIn', function(req, res, next) {
-    res.render('page/sign-in', { title: 'Sign in', env: env });
+router.get('/login', function (req, res) {
+    res.render('login', {env: env});
 });
 
-
-router.get('/login',
-  function(req, res){
-    res.render('login', { env: env });
-  });
-
-router.get('/logout', function(req, res){
-  req.logout();
-  res.redirect('/');
+router.get('/logout', function (req, res) {
+    req.logout();
+    res.redirect('/');
 });
 
 router.get('/callback',
@@ -86,5 +76,9 @@ router.get('/callback',
         res.redirect(req.session.returnTo || '/user');
     });
 
+
+router.get('/test', function (req, res) {
+    res.render('page/sidebar-1');
+});
 
 module.exports = router;

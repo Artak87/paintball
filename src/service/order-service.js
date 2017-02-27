@@ -1,8 +1,14 @@
-const orderRepository = require("../repository/order-repository");
+const co = require('co');
+const orderRepository = require('../repository/order-repository');
+const paypal = require('../payment/paypal');
 
-function create(orderData) {
-    orderData.status = "pending";
+function * create(orderData) {
+    orderData.status = 'pending';
+    orderData = orderRepository.saveOrder(orderData);
+    const paypalResult = yield paypal.create(orderData);
+    orderData.payment = paypalResult;
     orderRepository.saveOrder(orderData);
+    return orderData;
 }
 
 function getUserOrders(userId, page) {
@@ -16,6 +22,5 @@ function getUserOrders(userId, page) {
     return orderRepository.getUserOrders(userId, limit, skip);
 }
 
-module.exports.create = create;
+module.exports.create = co.wrap(create);
 module.exports.getUserOrders = getUserOrders;
-

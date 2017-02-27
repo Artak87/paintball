@@ -5,8 +5,14 @@ function saveMessage(messageData) {
     if (!messageData.id) {
         messageData.id = uuid();
         messageData.createdAt = new Date();
+        message.push(messageData).value();
+        return messageData;
     }
-    message.push(messageData).value();
+    messageData.updatedAt = new Date();
+    message.find({id: messageData.id})
+        .assign(messageData)
+        .value();
+    return messageData;
 }
 
 module.exports.saveMessage = saveMessage;

@@ -5,8 +5,14 @@ function saveOrder(orderData) {
     if (!orderData.id) {
         orderData.id = uuid();
         orderData.createdAt = new Date();
+        order.push(orderData).value();
+        return orderData;
     }
-    order.push(orderData).value();
+    orderData.updatedAt = new Date();
+    order.find({id: orderData.id})
+        .assign(orderData)
+        .value();
+    return orderData;
 }
 
 function getOrderById(id) {

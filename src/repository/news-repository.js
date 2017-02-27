@@ -5,8 +5,14 @@ export function saveNews(newsData) {
     if (!newsData.id) {
         newsData.id = uuid();
         newsData.createdAt = new Date();
+        news.push(newsData).value();
+        return newsData;
     }
-    news.push(newsData).value();
+    newsData.updatedAt = new Date();
+    news.find({id: newsData.id})
+        .assign(newsData)
+        .value();
+    return newsData;
 }
 
 export function getNewsById(id) {

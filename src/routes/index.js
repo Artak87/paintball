@@ -1,8 +1,9 @@
 const express = require('express');
 const passport = require('passport');
-const messageService = require("../service/message-service");
-const orderService = require("../service/order-service");
-const userService = require("../service/user-service");
+const co = require('co');
+const messageService = require('../service/message-service');
+const orderService = require('../service/order-service');
+const userService = require('../service/user-service');
 const router = express.Router();
 
 router.get('/', function (req, res, next) {
@@ -17,12 +18,13 @@ router.get('/order', function (req, res, next) {
     });
 });
 
-router.post('/order', function (req, res, next) {
-    orderService.create(req.body['order']);
+router.post('/order', co.wrap(function * (req, res, next) {
+    const orderData = yield orderService.create(req.body['order']);
     res.send({
-        message: "success",
+        message: 'success',
+        order: orderData,
     });
-});
+}));
 
 
 router.get('/contact', function (req, res, next) {
@@ -33,7 +35,7 @@ router.get('/contact', function (req, res, next) {
 router.post('/contact', function (req, res, next) {
     messageService.create(req.body['message']);
     res.send({
-        message: "success",
+        message: 'success',
     });
 });
 

@@ -2,14 +2,13 @@ const paypal = require('paypal-rest-sdk');
 
 paypal.configure({
     'mode': 'sandbox', //sandbox or live
-    'client_id': 'EBWKjlELKMYqRNQ6sYvFo64FtaRLRR5BdHEESmha49TM',
-    'client_secret': 'EO422dn3gQLgDbuwqTjzrFgFtaRLRR5BdHEESmha49TM'
+    'client_id': 'AdG8yXERChWGmLWy0n8xK2x9pLCHLSVcb2-aRqfiOllfPTPK1jyi4Q2bTWQBP7qFht1b5Zoap9qMY48Z',
+    'client_secret': 'EHWoYKwqEd6f_0NObHUFfwyIatwOMiGZcish6j1VjYTNJRt7f6-0f-Q1lLKCLdIHtT97B1lWNfw5jqPZ'
 });
 
 function generateOrderDescription(orderData) {
-    return "";
+    return "some description";
 }
-
 
 function create(orderData) {
     const total = Number(orderData.price).toFixed(2);
@@ -20,8 +19,8 @@ function create(orderData) {
             "payment_method": "paypal"
         },
         "redirect_urls": {
-            "return_url": "http://yoururl.com/payment/execute/paypal",
-            "cancel_url": "http://yoururl.com/payment/cancel/paypal"
+            "return_url": "http://localhost:3000/payment/execute/paypal",
+            "cancel_url": "http://localhost:3000/payment/cancel/paypal"
         },
         "transactions": [{
             "amount": {
@@ -49,6 +48,7 @@ function create(orderData) {
                 return resolve({
                     paymentId: paymentId,
                     redirectUrl: redirectUrl,
+                    payment: payment,
                 });
             }
             reject(new Error('Incorrect payment method.'));

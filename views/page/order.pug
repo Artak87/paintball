@@ -79,14 +79,16 @@ block content
                                         strong.price-value(data-default='0.00')
                     .row.p-0.mb-3
                         .col
-                            input#submit-button.order-button-yellow.btn.btn-success.btn-lg.pull-right(type='submit', value='Submit')
+                            //input#submit-button.order-button-yellow.btn.btn-success.btn-lg.pull-right(type='submit', value='Submit')
+                            input#submit-button.btn.btn-success.btn-lg.pull-right(type='submit', value='buy now')
                 #order-form-error-message.alert.alert-danger(role='alert', style='display: none;')
                 #order-form-success-message.row(style='display: none;')
                     .col
                         h1.display-2.text-center.text-success
                             i.fa.fa-fw.fa-paypal.mr-3
+                            //img.img-fluid.rounded(src='/images/images.jpeg', alt='image')
                             h5.display-4.text-center.text-success
-                                | Message successfully sent
+                                | Review and commit to buy
             .col-lg-4
                 #time-list.noselect.time-list.text-center
                 //ul.time-list

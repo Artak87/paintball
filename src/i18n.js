@@ -4,4 +4,4 @@ i18n.configure({
     directory: __dirname + '/locales'
 });
 
-module.exports.__ = __;
+module.exports.__ = i18n.__;

@@ -1,7 +1,7 @@
 jQuery(document).ready(function ($) {
 
     var form = $('#order-form');
-    var loadingForm = form.find(".loading");
+    var loadingForm = $(".loading");
     var contactInformationGroup = form.find(".contactInformationGroup");
     var isFirstTime = true;
 

@@ -11,6 +11,7 @@ const passport = require('passport');
 const Auth0Strategy = require('passport-auth0');
 const helmet = require('helmet');
 const userService = require('./src/service/user-service');
+const __ = require('./src/i18n').__;
 
 dotenv.load();
 
@@ -66,6 +67,7 @@ app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(helmet());
 
+app.locals.__ = __;
 
 app.locals.mainMenu = [
     {path: '/',               title: 'Home'},

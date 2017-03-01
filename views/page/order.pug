@@ -20,9 +20,12 @@ block content
             .col-lg-8
                 form#order-form.contact-form(role='form', name='contact-form', method='post', action='', novalidate='novalidate')
                     .loading.text-center
-                        i.fa.fa-spinner.fa-pulse.fa-3x(style="margin-top:16%")
+                        i.fa.fa-spinner.fa-pulse.fa-3x
+                    input#order-id(type='hidden', name='orderId', value='')
                     input(type='hidden', name='userId', value=user.id)
                     input(type='hidden', name='price', value='0')
+                    input(type='hidden', name='startDateTime', value='')
+                    input(type='hidden', name='endDateTime', value='')
                     fieldset
                         legend Contact Information
                             .button-show-hide.pull-right(data-toggle='group-collapse', data-target='.contactInformationGroup', data-icon-target='#group-collapse-icon')
@@ -73,7 +76,7 @@ block content
                         .row.p-0
                             label.col-sm-6.col-md-5.col-form-label(for='price') Price
                             .col-sm-6.col-md-5
-                                #price.price(type='text')
+                                #price.price
                                     h4
                                         i.fa.fa-dollar
                                         strong.price-value(data-default='0.00')
@@ -84,66 +87,26 @@ block content
                 #order-form-error-message.alert.alert-danger(role='alert', style='display: none;')
                 #order-form-success-message.row(style='display: none;')
                     .col
-                        h1.display-2.text-center.text-success
-                            i.fa.fa-fw.fa-paypal.mr-3
-                            //img.img-fluid.rounded(src='/images/images.jpeg', alt='image')
-                            h5.display-4.text-center.text-success
-                                | Review and commit to buy
+                        dl.row
+                            dt.col-sm-3 Name
+                            dd#order-fullname.col-sm-9
+                            dt.col-sm-3 Email
+                            dd#order-email.col-sm-9
+                            dt.col-sm-3 Phone
+                            dd#order-phone.col-sm-9
+                            dt.col-sm-3 Players Number
+                            dd#order-playersNumber.col-sm-9
+                            dt.col-sm-3 Start Time
+                            dd#order-startTime.col-sm-9
+                            dt.col-sm-3 Duration
+                            dd#order-duration.col-sm-9
+                        h4
+                            | Price
+                            i.fa.fa-dollar
+                            strong#order-price
+                        a#paypal-checkout-url(href='#')
+                            img(src='https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif')
             .col-lg-4
                 #time-list.noselect.time-list.text-center
-                //ul.time-list
-                //    li
-                //        span.badge.badge-success(data-duration='30')  8:00 am
-                //    li
-                //        span.badge.badge-success(data-duration='30')  8:30 am
-                //    li
-                //        span.badge.badge-success(data-duration='30')  9:00 am
-                //    li
-                //        span.badge.badge-success(data-duration='30')  9:30 am
-                //    li
-                //        span.badge.badge-success(data-duration='30') 10:00 am
-                //    li
-                //        span.badge.badge-success(data-duration='30') 10:30 am
-                //    li
-                //        span.badge.badge-success(data-duration='30') 11:00 am
-                //    li
-                //        span.badge.badge-success(data-duration='30') 11:30 am
-                //    li
-                //        span.badge.badge-success(data-duration='30') 12:00 pm
-                //    li
-                //        span.badge.badge-success(data-duration='30') 12:30 pm
-                //    li
-                //        span.badge.badge-success(data-duration='30') 10:00 pm
-                //    li
-                //        span.badge.badge-success(data-duration='30') 10:30 pm
-                //    li
-                //        span.badge.badge-success(data-duration='30') 12:00 pm
-                //    li
-                //        span.badge.badge-success(data-duration='30') 12:30 pm
-                //    li
-                //        span.badge.badge-success(data-duration='30')  1:00 pm
-                //    li
-                //        span.badge.badge-success(data-duration='30')  1:30 pm
-                //    li
-                //        span.badge.badge-success(data-duration='30')  2:00 pm
-                //    li
-                //        span.badge.badge-success(data-duration='30')  2:30 pm
-                //    li
-                //        span.badge.badge-success(data-duration='30')  3:00 pm
-                //    li
-                //        span.badge.badge-success(data-duration='30')  3:30 pm
-                //    li
-                //        span.badge.badge-success(data-duration='30')  4:00 pm
-                //    li
-                //        span.badge.badge-success(data-duration='30')  4:30 pm
-                //    li
-                //        span.badge.badge-success(data-duration='30')  5:00 pm
-                //    li
-                //        span.badge.badge-success(data-duration='30')  5:30 pm
-                //    li
-                //        span.badge.badge-success(data-duration='30')  6:00 pm
-                //    li
-                //        span.badge.badge-success(data-duration='30')  6:30 pm
-
                 a#deselect-all.pull-right.m-3(href="#")
                     | cancel selections

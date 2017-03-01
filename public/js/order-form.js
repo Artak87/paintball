@@ -56,6 +56,15 @@ jQuery(document).ready(function ($) {
             }),
             dataType: 'json',
             success: function (res) {
+                var order = res.order;
+                $("#order-id").val(order.id);
+                $("#paypal-checkout-url").prop('href', order.payment.redirectUrl);
+                for (var key in order) {
+                    var tmpEl = $("#order-" + key);
+                    if (tmpEl.length) {
+                        tmpEl.text(order[key]);
+                    }
+                }
                 form.fadeOut('fast', function () {
                     $('#order-form-success-message').fadeIn('fast');
                 });

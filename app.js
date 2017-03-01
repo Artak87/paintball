@@ -16,6 +16,8 @@ dotenv.load();
 
 const routes = require('./src/routes/index');
 const user = require('./src/routes/user-rout');
+const payment = require('./src/routes/payment-rout');
+
 
 // This will configure Passport to use Auth0
 const strategy = new Auth0Strategy({
@@ -89,7 +91,7 @@ app.use((req, res, next) => {
 
 app.use('/', routes);
 app.use('/user', user);
-
+app.use('/payment', payment);
 
 
 

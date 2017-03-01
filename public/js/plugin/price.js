@@ -34,7 +34,7 @@
             var price = playersNumber * duration * k;
 
             if (setting.input) {
-                setting.input.val(price);
+                setting.input.val(formatMoney(price, 2, ".", ""));
             }
             el.showPrice(price);
         };

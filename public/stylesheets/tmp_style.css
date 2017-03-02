@@ -16,6 +16,11 @@ body {
     background: #fff;
     color: #9e9ba8;
 }
+.form-control::-webkit-input-placeholder { color: #bbbdce; }
+.form-control:-moz-placeholder { color: #bbbdce; }
+.form-control::-moz-placeholder { color: #bbbdce; }
+.form-control:-ms-input-placeholder { color: #bbbdce; }
+.form-control::placeholder { color: #bbbdce; }
 
 /*Header*/
 

@@ -10,7 +10,7 @@ if (!fs.existsSync('./data')) {
 const app = require('../app');
 
 // if (process.env.NODE_ENV === 'production') {
-//     require('letsencrypt-express').create({
+//     require('greenlock-express').create({
 //         server: 'https://acme-v01.api.letsencrypt.org/directory',
 //         email: process.env.LETSENCRYPT_EMAIL,
 //         agreeTos: true,

@@ -1,4 +1,5 @@
 const paypal = require('paypal-rest-sdk');
+const __ = require('../i18n').__;
 
 paypal.configure({
     'mode': 'sandbox', //sandbox or live
@@ -7,7 +8,12 @@ paypal.configure({
 });
 
 function generateOrderDescription(orderData) {
-    return "some description";
+    let description = __('Order at paintball');
+    description += '\n' + __('Players Number') + ': ' + orderData['playersNumber'];
+    description += '\n' + __('Time start') + ': ' + orderData['startTime'];
+    description += '\n' + __('Duration') + ': ' + orderData['duration'];
+
+    return description;
 }
 
 function create(orderData) {
@@ -51,7 +57,7 @@ function create(orderData) {
                     payment: payment,
                 });
             }
-            reject(new Error('Incorrect payment method.'));
+            reject(new Error(__('Incorrect payment method.')));
         });
     });
 }

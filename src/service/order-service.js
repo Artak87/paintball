@@ -5,8 +5,7 @@ const paypal = require('../payment/paypal');
 function * create(orderData) {
     orderData.status = 'pending';
     orderData = orderRepository.saveOrder(orderData);
-    const paypalResult = yield paypal.create(orderData);
-    orderData.payment = paypalResult;
+    orderData.payment = yield paypal.create(orderData);
     orderRepository.saveOrder(orderData);
     return orderData;
 }

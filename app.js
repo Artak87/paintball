@@ -11,11 +11,14 @@ const passport = require('passport');
 const Auth0Strategy = require('passport-auth0');
 const helmet = require('helmet');
 const userService = require('./src/service/user-service');
+const __ = require('./src/i18n').__;
 
 dotenv.load();
 
 const routes = require('./src/routes/index');
 const user = require('./src/routes/user-rout');
+const payment = require('./src/routes/payment-rout');
+
 
 // This will configure Passport to use Auth0
 const strategy = new Auth0Strategy({
@@ -64,6 +67,7 @@ app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(helmet());
 
+app.locals.__ = __;
 
 app.locals.mainMenu = [
     {path: '/',               title: 'Home'},
@@ -89,7 +93,7 @@ app.use((req, res, next) => {
 
 app.use('/', routes);
 app.use('/user', user);
-
+app.use('/payment', payment);
 
 
 

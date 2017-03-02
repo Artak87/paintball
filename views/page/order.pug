@@ -5,6 +5,8 @@ block after
 
 block content
     .container
+        .loading.text-center
+            i.fa.fa-spinner.fa-pulse.fa-3x
         .row.p-0
             .col-12.mt-2
                 .btn-toolbar(role='toolbar')
@@ -14,37 +16,38 @@ block content
                         button.btn.btn-secondary(type='button')
                             i.fa.fa-chevron-right(aria-hidden='true')
                     .btn-group(role='group')
-                        button.btn.btn-secondary.ml-3(type='button') today
+                        button.btn.btn-secondary.ml-3(type='button')= __('today')
                     h2.mt-auto.ml-5 2017.02.24
         .row.p-0
             .col-lg-8
                 form#order-form.contact-form(role='form', name='contact-form', method='post', action='', novalidate='novalidate')
-                    .loading.text-center
-                        i.fa.fa-spinner.fa-pulse.fa-3x(style="margin-top:16%")
+                    input#order-id(type='hidden', name='orderId', value='')
                     input(type='hidden', name='userId', value=user.id)
                     input(type='hidden', name='price', value='0')
+                    input(type='hidden', name='startDateTime', value='')
+                    input(type='hidden', name='endDateTime', value='')
                     fieldset
-                        legend Contact Information
+                        legend= __('Contact Information')
                             .button-show-hide.pull-right(data-toggle='group-collapse', data-target='.contactInformationGroup', data-icon-target='#group-collapse-icon')
                                 a(href="#")
                                     i#group-collapse-icon.fa.fa-fw.fa-angle-up
                         .contactInformationGroup
                             .form-group.row.p-0
-                                label.col-md-3.col-form-label(for='fullname') Name *
+                                label.col-md-3.col-form-label(for='fullname')= __('Name') + ' *'
                                 .col-md-9
-                                    input#fullname.form-control(required, type='text', name='fullname',placeholder='Your Name', value=user.displayName)
+                                    input#fullname.form-control(required, type='text', name='fullname', placeholder='Your Name', value=user.displayName)
                             .form-group.row.p-0
-                                label.col-md-3.col-form-label(for='email') Email *
+                                label.col-md-3.col-form-label(for='email')= __('Email') + ' *'
                                 .col-md-9
-                                    input#email.form-control(required, type='email', name='email',placeholder='Email', value=user.email)
+                                    input#email.form-control(required, type='email', name='email', placeholder='Email', value=user.email)
                             .form-group.row.p-0
-                                label.col-md-3.col-form-label(for='phone') Phone Number *
+                                label.col-md-3.col-form-label(for='phone')= __('Phone Number') + ' *'
                                 .col-md-9
-                                   input#phone.form-control(required, type='tel', name='phone',placeholder='tel', value=user.phone)
+                                    input#phone.form-control(required, type='tel', name='phone', placeholder='tel', value=user.phone)
                     fieldset
-                        legend Time Information
+                        legend= __('Time Information')
                         .form-group.row.p-0
-                            label.col-sm-6.col-md-5.col-form-label(for='playersNumber') Number of Players
+                            label.col-sm-6.col-md-5.col-form-label(for='playersNumber')= __('Number of Players')
                             .col-sm-6.col-md-5
                                 .input-group.group-number(role='group', data-default='8', data-min='2', data-max='50')
                                     button.btn.input-group-addon(type='button')
@@ -53,7 +56,7 @@ block content
                                     button.btn.input-group-addon(type='button')
                                         i.fa.fa-plus(aria-hidden='true')
                         .form-group.row.p-0
-                            label.col-sm-6.col-md-5.col-form-label(for='startTime') Time start
+                            label.col-sm-6.col-md-5.col-form-label(for='startTime')= __('Time start')
                             .col-sm-6.col-md-5
                                 .input-group.group-number-time(role='group', data-default='8:00 am', data-min='8:00 am', data-max='6:00 pm')
                                     button.btn.input-group-addon(type='button')
@@ -62,7 +65,7 @@ block content
                                     button.btn.input-group-addon(type='button')
                                         i.fa.fa-plus(aria-hidden='true')
                         .form-group.row.p-0
-                            label.col-sm-6.col-md-5.col-form-label(for='duration') Duration
+                            label.col-sm-6.col-md-5.col-form-label(for='duration')= __('Duration')
                             .col-sm-6.col-md-5
                                 .input-group.group-duration(role='group', data-default='0:00', data-min='0:00', data-max='12:00', data-step='10')
                                     button.btn.input-group-addon(type='button')
@@ -71,77 +74,39 @@ block content
                                     button.btn.input-group-addon(type='button')
                                         i.fa.fa-plus(aria-hidden='true')
                         .row.p-0
-                            label.col-sm-6.col-md-5.col-form-label(for='price') Price
+                            label.col-sm-6.col-md-5.col-form-label(for='price')= __('Price')
                             .col-sm-6.col-md-5
-                                #price.price(type='text')
+                                #price.price
                                     h4
-                                        i.fa.fa-dollar
+                                        i.fa.fa-fw.fa-dollar
                                         strong.price-value(data-default='0.00')
                     .row.p-0.mb-3
                         .col
-                            input#submit-button.order-button-yellow.btn.btn-success.btn-lg.pull-right(type='submit', value='Submit')
+                            //input#submit-button.order-button-yellow.btn.btn-success.btn-lg.pull-right(type='submit', value='Submit')
+                            input#submit-button.btn.btn-success.btn-lg.pull-right(type='submit', value=__('Order Now'))
                 #order-form-error-message.alert.alert-danger(role='alert', style='display: none;')
                 #order-form-success-message.row(style='display: none;')
                     .col
-                        h1.display-2.text-center.text-success
-                            i.fa.fa-fw.fa-paypal.mr-3
-                            h5.display-4.text-center.text-success
-                                | Message successfully sent
+                        dl.row.m-0
+                            dt.col-sm-3= __('Name')
+                            dd#order-fullname.col-sm-9
+                            dt.col-sm-3= __('Email')
+                            dd#order-email.col-sm-9
+                            dt.col-sm-3= __('Phone')
+                            dd#order-phone.col-sm-9
+                            dt.col-sm-3= __('Players Number')
+                            dd#order-playersNumber.col-sm-9
+                            dt.col-sm-3= __('Time start')
+                            dd#order-startTime.col-sm-9
+                            dt.col-sm-3= __('Duration')
+                            dd#order-duration.col-sm-9
+                        h4
+                            = __('Price')
+                            i.fa.fa-fw.fa-dollar
+                            strong#order-price
+                        a#paypal-checkout-url(href='#')
+                            img(src='https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif')
             .col-lg-4
                 #time-list.noselect.time-list.text-center
-                //ul.time-list
-                //    li
-                //        span.badge.badge-success(data-duration='30')  8:00 am
-                //    li
-                //        span.badge.badge-success(data-duration='30')  8:30 am
-                //    li
-                //        span.badge.badge-success(data-duration='30')  9:00 am
-                //    li
-                //        span.badge.badge-success(data-duration='30')  9:30 am
-                //    li
-                //        span.badge.badge-success(data-duration='30') 10:00 am
-                //    li
-                //        span.badge.badge-success(data-duration='30') 10:30 am
-                //    li
-                //        span.badge.badge-success(data-duration='30') 11:00 am
-                //    li
-                //        span.badge.badge-success(data-duration='30') 11:30 am
-                //    li
-                //        span.badge.badge-success(data-duration='30') 12:00 pm
-                //    li
-                //        span.badge.badge-success(data-duration='30') 12:30 pm
-                //    li
-                //        span.badge.badge-success(data-duration='30') 10:00 pm
-                //    li
-                //        span.badge.badge-success(data-duration='30') 10:30 pm
-                //    li
-                //        span.badge.badge-success(data-duration='30') 12:00 pm
-                //    li
-                //        span.badge.badge-success(data-duration='30') 12:30 pm
-                //    li
-                //        span.badge.badge-success(data-duration='30')  1:00 pm
-                //    li
-                //        span.badge.badge-success(data-duration='30')  1:30 pm
-                //    li
-                //        span.badge.badge-success(data-duration='30')  2:00 pm
-                //    li
-                //        span.badge.badge-success(data-duration='30')  2:30 pm
-                //    li
-                //        span.badge.badge-success(data-duration='30')  3:00 pm
-                //    li
-                //        span.badge.badge-success(data-duration='30')  3:30 pm
-                //    li
-                //        span.badge.badge-success(data-duration='30')  4:00 pm
-                //    li
-                //        span.badge.badge-success(data-duration='30')  4:30 pm
-                //    li
-                //        span.badge.badge-success(data-duration='30')  5:00 pm
-                //    li
-                //        span.badge.badge-success(data-duration='30')  5:30 pm
-                //    li
-                //        span.badge.badge-success(data-duration='30')  6:00 pm
-                //    li
-                //        span.badge.badge-success(data-duration='30')  6:30 pm
-
                 a#deselect-all.pull-right.m-3(href="#")
-                    | cancel selections
+                    = __('cancel selections')

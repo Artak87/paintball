@@ -57,41 +57,15 @@
             var item = $(this);
             var timeStart = item.data('timeStart');
             var timeEnd = item.data('timeEnd');
+            var res;
 
-            if (!selectStart) {
-                selectStart = timeStart;
-                selectEnd = timeEnd;
-                selectItem(item);
-            } else if (selectStart === timeStart) {
-                // todo
+            if (selectStart < timeStart) {
+                res = fillTime(selectStart || timeStart, timeEnd, true);
+                el.trigger("change", res);
             } else {
-                if (selectStart < timeStart) {
-                    fillTime(selectStart, timeEnd, true);
-                } else {
-                    fillTime(selectEnd, timeStart, false);
-                }
+                res = fillTime(selectEnd || timeEnd, timeStart, false);
+                el.trigger("change", res);
             }
-
-            // if (isFreeTime(timeStart)) {
-            //     if (!selectStart) {
-            //         selectStart = timeStart;
-            //         selectEnd = timeEnd;
-            //         selectItem(item);
-            //     } else if (selectEnd === timeStart) {
-            //         selectEnd = timeEnd;
-            //         selectItem(item);
-            //     } else if (isCanFillTime(selectEnd, timeStart)) {
-            //         fillTime(selectEnd, timeEnd);
-            //         selectEnd = timeEnd;
-            //     } else {
-            //         selectStart = timeStart;
-            //         selectEnd = timeEnd;
-            //         deselectAll();
-            //         selectItem(item);
-            //     }
-            // } else {
-            //     // handel error
-            // }
         }
 
         function isFreeTime(time) {
@@ -103,39 +77,63 @@
             return true;
         }
 
-        function fillTime(start, end, inc) {
+        function fillTime(start, end, inc, force) {
             var step = setting.step * 60 * 1000;
             var doSelect = true;
             var selStart = null;
             var selEnd = null;
             var i;
+            var isError = false;
+
             if (inc) {
-                selStart = start;
                 for (i = start; i < end; i += step) {
                     if (!isFreeTime(i)) {
-                        errorItem(getItemByTime(i));
+                        isError = true;
+                        errorItem(getItemByTime(i), force);
                         doSelect = false;
                     }
+
                     if (doSelect) {
-                        selEnd = i;
+                        if (!selStart) {
+                            selStart = i;
+                        }
+                        selEnd = i + step;
                         selectItem(getItemByTime(i));
                     }
                 }
             } else {
                 for (i = start - step; i >= end; i -= step) {
                     if (!isFreeTime(i)) {
-                        errorItem(getItemByTime(i));
+                        isError = true;
+                        errorItem(getItemByTime(i), force);
                         doSelect = false;
                     }
+
                     if (doSelect) {
-                        selEnd = i;
+                        if (!selEnd) {
+                            selEnd = i;
+                        }
+                        selStart = i;
                         selectItem(getItemByTime(i));
                     }
                 }
             }
+            selectStart = selStart;
+            selectEnd = selEnd;
+            if (selStart === selEnd) {
+                selectStart = null;
+                selectEnd = null;
+            }
+            if (!isError) {
+                for (var key in items) {
+                    items[key].removeClass("e");
+                }
+            }
+
             return {
                 start: selStart,
                 end: selEnd,
+                isError: isError,
             };
         }
 
@@ -149,7 +147,7 @@
             }
         }
 
-        function errorItem(item) {
+        function errorItem(item, force) {
             var timer = item.data("timer");
             var timerError = item.data("timerError");
             if (timer) {
@@ -166,12 +164,14 @@
                     item.data("timer", null);
                 }
             })(item), 400);
-            timerError = setTimeout((function (item) {
-                return function () {
-                    item.removeClass("e");
-                    item.data("timerError", null);
-                }
-            })(item), 1400);
+            if (!force) {
+                timerError = setTimeout((function (item) {
+                    return function () {
+                        item.removeClass("e");
+                        item.data("timerError", null);
+                    }
+                })(item), 1400);
+            }
             item.data("timer", timer);
             item.data("timerError", timerError);
         }
@@ -196,7 +196,7 @@
         }
 
         function deselectItem(item) {
-            item.removeClass("s");
+            item.removeClass("s e");
         }
 
         function formatTime(timestamp) {
@@ -231,6 +231,28 @@
             selectStart = null;
             selectEnd = null;
             deselectAll();
+            el.trigger("change", {
+                start: null,
+                end: null,
+            });
+        };
+
+        el.fillTime = function(startTime, duration) {
+            var d = new Date();
+            var now = d.setHours(0,0,0,0);
+            var start = now + startTime * 60 * 1000;
+            var end  = now + (startTime + duration) * 60 * 1000;
+            deselectAll();
+            if (start < setting.start || end > setting.end) {
+                selectStart = null;
+                selectEnd = null;
+                return {
+                    start: null,
+                    end: null,
+                    isError: true,
+                };
+            }
+            return fillTime(start, end, true, true);
         };
 
         return el;

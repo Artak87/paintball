@@ -56,7 +56,7 @@
         });
 
 
-        function setValue(val) {
+        function setValue(val, trigger) {
             value = parseInt(val);
 
             if (isNaN(value)) {
@@ -78,7 +78,9 @@
             el.data("value", value);
             el.data("value-time", valueToTime(value));
             input.val(valueToTime(value));
-            el.trigger("change");
+            if (trigger !== false) {
+                el.trigger("change");
+            }
         }
 
         function strToValue(time) {
@@ -121,6 +123,9 @@
             return value;
         };
 
+        el.setValue = function(val) {
+            setValue(val, false);
+        };
 
         return el;
     };

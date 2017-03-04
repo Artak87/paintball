@@ -19,9 +19,10 @@
         var int = null;
 
         if (settings.default) {
-            input.val(settings.default);
+            setValue(settings.default);
+        } else {
+            setValue('');
         }
-        setValue(strToValue(input.val()));
 
         input.on("change", function () {
             setValue(strToValue(input.val()));
@@ -55,7 +56,7 @@
         });
 
 
-        function setValue(val) {
+        function setValue(val, trigger) {
             value = parseInt(val);
             if (isNaN(value)) {
                 value = 0;
@@ -76,7 +77,9 @@
             el.data("value", value);
             el.data("value-time", valueToTime(value));
             input.val(valueToTime(value));
-            el.trigger("change");
+            if (trigger !== false) {
+                el.trigger("change");
+            }
         }
 
         function strToValue(time) {
@@ -86,13 +89,17 @@
             var num = 0;
 
             var arr = time.split(" ");
-            if (arr[1] === "pm") {
-                num += 12 * 60;
-            }
             var arr2 = arr[0].split(":");
 
             var hour = parseInt(arr2[0]);
             var minute = parseInt(arr2[1]);
+
+            if (arr[1] === "pm") {
+                num += 12 * 60;
+                if (hour === 12) {
+                    hour = 0;
+                }
+            }
 
             num += hour * 60 + minute;
 
@@ -118,6 +125,11 @@
         el.getValue = function() {
             return value;
         };
+
+        el.setValue = function(val) {
+            setValue(val, false);
+        };
+
 
         return el;
     };

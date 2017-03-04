@@ -8,16 +8,19 @@ block content
         .loading.text-center
             i.fa.fa-spinner.fa-pulse.fa-3x
         .row.p-0
-            .col-12.mt-2
+            .col-12.mt-2.mb-2
                 .btn-toolbar(role='toolbar')
                     .btn-group(role='group')
                         button.btn.btn-secondary(type='button')
                             i.fa.fa-chevron-left(aria-hidden='true')
                         button.btn.btn-secondary(type='button')
                             i.fa.fa-chevron-right(aria-hidden='true')
-                    .btn-group(role='group')
-                        button.btn.btn-secondary.ml-3(type='button')= __('today')
+                    .btn-group.ml-3(role='group')
+                        button.btn.btn-secondary(type='button')
+                            i.fa.fa-calendar(aria-hidden='true')
+                        button.btn.btn-secondary(type='button')= __('today')
                     h2.mt-auto.ml-5 2017.02.24
+                hr
         .row.p-0
             .col-lg-8
                 form#order-form.contact-form(role='form', name='contact-form', method='post', action='', novalidate='novalidate')
@@ -58,7 +61,7 @@ block content
                         .form-group.row.p-0
                             label.col-sm-6.col-md-5.col-form-label(for='startTime')= __('Time start')
                             .col-sm-6.col-md-5
-                                .input-group.group-number-time(role='group', data-default='8:00 am', data-min='8:00 am', data-max='6:00 pm')
+                                .input-group.group-number-time(role='group', data-default='8:00 am', data-min='6:00 am', data-max='8:00 pm')
                                     button.btn.input-group-addon(type='button')
                                         i.fa.fa-minus(aria-hidden='true')
                                     input#startTime.form-control(type='text', name='startTime', autocomplete='off')
@@ -73,6 +76,8 @@ block content
                                     input#duration.form-control(type='text', name='duration', autocomplete='off')
                                     button.btn.input-group-addon(type='button')
                                         i.fa.fa-plus(aria-hidden='true')
+                                #times-error.mt-2.alert.alert-danger(role="alert", style='display:none;')
+                                    = __('Sorry but you can\'t chose this time')
                         .row.p-0
                             label.col-sm-6.col-md-5.col-form-label(for='price')= __('Price')
                             .col-sm-6.col-md-5

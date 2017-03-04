@@ -10,11 +10,11 @@ header.main__header
                 if isAuthenticated
                     img.rounded-circle.user-img(src=user.picture, alt=user.displayName, title=user.displayName)
                     a.sing-out(href="#")
-                        i.fa.fa-fw.fa-power-off.fa-1x(aria-hidden='true' title="sing out")
+                        i.fa.fa-fw.fa-power-off.fa-1x(aria-hidden='true' title= __('Sing out'))
                 else
-                    a.btn.btn-success.m-0(href="#", onclick="lock.show()") Sign in
+                    a.btn.btn-success.m-0(href="#", onclick="lock.show()")= __('Sign in')
             .navbar-header
-                button.navbar-toggler.navbar-toggler-right(type='button', data-toggle='collapse', data-target='#mainnavbar', aria-controls='mainnavbar', aria-expanded='false', aria-label='Toggle navigation')
+                button.navbar-toggler.navbar-toggler-right(type='button', data-toggle='collapse', data-target='#mainnavbar', aria-controls='mainnavbar', aria-expanded='false', aria-label= __('Toggle navigation'))
                     span.navbar-toggler-icon
                 h1.navbar-brand
                     a(href='/')

@@ -85,22 +85,22 @@ block content
                             //input#submit-button.order-button-yellow.btn.btn-success.btn-lg.pull-right(type='submit', value='Submit')
                             input#submit-button.btn.btn-success.btn-lg.pull-right(type='submit', value=__('Order Now'))
                 #order-form-error-message.alert.alert-danger(role='alert', style='display: none;')
-                #order-form-success-message.row(style='display: none;')
+                #order-form-success-message.row.p-0(style='display: none;')
                     .col
-                        dl.row.m-0
-                            dt.col-sm-3= __('Name')
-                            dd#order-fullname.col-sm-9
-                            dt.col-sm-3= __('Email')
-                            dd#order-email.col-sm-9
-                            dt.col-sm-3= __('Phone')
-                            dd#order-phone.col-sm-9
-                            dt.col-sm-3= __('Players Number')
-                            dd#order-playersNumber.col-sm-9
-                            dt.col-sm-3= __('Time start')
-                            dd#order-startTime.col-sm-9
-                            dt.col-sm-3= __('Duration')
-                            dd#order-duration.col-sm-9
-                        h4
+                        dl.row.m-0.pb-0
+                            dt.col-sm-5= __('Name')
+                            dd#order-fullname.col-sm-7
+                            dt.col-sm-5= __('Email')
+                            dd#order-email.col-sm-7
+                            dt.col-sm-5= __('Phone')
+                            dd#order-phone.col-sm-7
+                            dt.col-sm-5= __('Players Number')
+                            dd#order-playersNumber.col-sm-7
+                            dt.col-sm-5= __('Time start')
+                            dd#order-startTime.col-sm-7
+                            dt.col-sm-5= __('Duration')
+                            dd#order-duration.col-sm-7
+                        h4.m-3
                             = __('Price')
                             i.fa.fa-fw.fa-dollar
                             strong#order-price

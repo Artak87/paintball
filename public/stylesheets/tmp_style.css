@@ -483,24 +483,6 @@ button.btn-primary:focus {
     text-shadow: 1px 1px 3px #666666;
 }
 
-.carousel-caption h1 {
-    font-size: 60px;
-    line-height: 72px;
-    font-family: "Roboto", sans-serif;
-    font-weight: 300;
-    color: #fff;
-}
-
-.carousel-caption h1 span {
-    color: #fff;
-    padding: 0 8px;
-    border-radius: 4px;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -ms-border-radius: 4px;
-    -o-border-radius: 4px;
-    background-color: #ffcd55;
-}
 
 .carousel-control {
     background: none;
@@ -544,10 +526,6 @@ button.btn-primary:focus {
     top: 100px;
 }
 
-.boxed .carousel-caption h1 {
-    font-size: 40px;
-    line-height: 40px;
-}
 
 /*service-icons*/
 .service-icons {
@@ -796,12 +774,6 @@ footer .copy {
     padding: 25px 0;
 }
 
-@media (max-width: 1600px) {
-    .carousel-caption h1 {
-        font-size: 40px;
-        line-height: 40px;
-    }
-}
 
 @media (max-width: 1310px) {
     .carousel-caption {
@@ -810,10 +782,7 @@ footer .copy {
         height: 290px;
     }
 
-    .carousel-caption h1 {
-        font-size: 30px;
-        line-height: 30px;
-    }
+
 
     .carousel-control .carousel-control-right, .carousel-control .carousel-control-left {
         top: 50%;

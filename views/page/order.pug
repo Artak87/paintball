@@ -1,7 +1,9 @@
 extends ../layout
 
 block before
+    link(rel='stylesheet', href='/lib/bootstrap-datepicker/css/bootstrap-datepicker.css')
 block after
+    script(src='/lib/bootstrap-datepicker/js/bootstrap-datepicker.js')
 
 block content
     .container
@@ -16,9 +18,9 @@ block content
                         button.btn.btn-secondary(type='button')
                             i.fa.fa-chevron-right(aria-hidden='true')
                     .btn-group.ml-3(role='group')
-                        button.btn.btn-secondary(type='button')
+                        button#calendar-btn.btn.btn-secondary(type='button')
                             i.fa.fa-calendar(aria-hidden='true')
-                        button.btn.btn-secondary(type='button')= __('today')
+                        button#today-btn.btn.btn-secondary(type='button')= __('today')
                     h2.mt-auto.ml-5 2017.02.24
                 hr
         .row.p-0

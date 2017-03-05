@@ -1530,3 +1530,9 @@ ul.dropdown-menu {
     height: 60px;
     line-height: 60px;
 }
+
+.datepicker th,
+.datepicker td {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+}

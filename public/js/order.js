@@ -15,6 +15,12 @@ jQuery(document).ready(function ($) {
     var timeList = $("#time-list").timeList({
         step: step
     });
+    var datePicker = $('#calendar-btn').datepicker({
+        weekStart: 1,
+        startDate: "now",
+        autoclose: true,
+        todayHighlight: true,
+    });
     var form = $('#order-form');
     var loadingForm = $(".loading");
     var contactInformationGroup = form.find(".contactInformationGroup");

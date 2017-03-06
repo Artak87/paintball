@@ -1,5 +1,6 @@
 jQuery(document).ready(function ($) {
 
+    var currentDate = new Date();
     var step = 10;
     var playersNumberElement = $(".group-number").groupNumber();
     var startTimeElement = $(".group-number-time").groupNumberTime({
@@ -103,9 +104,54 @@ jQuery(document).ready(function ($) {
         return false;
     });
 
+    $('#today-btn').click(function () {
+        var tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+
+        datePicker.datepicker('setDate', tomorrow);
+    });
+
+    $('#pref-btn').click(function () {
+
+    });
+
+    $('#next-btn').click(function () {
+        var yesterday = new Date();
+        yesterday.setDate(yesterday.getDate() - 1);
+
+        datePicker.datepicker('setDate', yesterday);
+    });
+
+    $('#date-today');
+
+
+
+
     calculatePrice();
 
     //================================== functions
+
+    function dateToString(date) {
+        return date.getFullYear() + '-' + date.getMonth() + '-' + date.getDate();
+    }
+
+    function setDate(date) {
+        if (dateToString(new Date()) === dateToString(date)) {
+            // disable pref
+        $('#pref-btn').prop("disabled",true);
+        }  else {
+            // enable pref
+            $('#pref-btn').prop("disabled",false);
+        }
+        // show date
+        dateToString().show('fast');
+        // set calendar date
+
+
+        // ajax call
+
+        currentDate = date;
+    }
 
     function changeTimes(event, times) {
         hideTimesDanger();

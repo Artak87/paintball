@@ -105,28 +105,28 @@ jQuery(document).ready(function ($) {
     });
 
     $('#today-btn').click(function () {
-        var tomorrow = new Date();
-        tomorrow.setDate(tomorrow.getDate() + 1);
-
-        datePicker.datepicker('setDate', tomorrow);
+        setDate(new Date());
     });
 
-    $('#pref-btn').click(function () {
+    $('#previous-btn').click(function () {
+        var prevDay = new Date();
+        prevDay.setDate(currentDate.getDate() - 1);
 
+        setDate(prevDay);
     });
 
     $('#next-btn').click(function () {
-        var yesterday = new Date();
-        yesterday.setDate(yesterday.getDate() - 1);
+        var nextDay = new Date();
+        nextDay.setDate(currentDate.getDate() + 1);
 
-        datePicker.datepicker('setDate', yesterday);
+        setDate(nextDay);
     });
 
-    $('#date-today');
+    datePicker.on('hide', function () {
+        setDate(datePicker.datepicker('getDate'));
+    });
 
-
-
-
+    setDate(currentDate);
     calculatePrice();
 
     //================================== functions
@@ -137,16 +137,21 @@ jQuery(document).ready(function ($) {
 
     function setDate(date) {
         if (dateToString(new Date()) === dateToString(date)) {
-            // disable pref
-        $('#pref-btn').prop("disabled",true);
+            $('#previous-btn')
+                .attr('disabled', 'disabled')
+                .addClass('disabled');
         }  else {
-            // enable pref
-            $('#pref-btn').prop("disabled",false);
+            $('#previous-btn')
+                .removeAttr('disabled')
+                .removeClass('disabled');
         }
         // show date
-        dateToString().show('fast');
-        // set calendar date
+        var text = date.toString().substr(0, 15);
 
+        $('#date-today').text(text);
+
+        // set calendar date
+        datePicker.datepicker('setDate', date);
 
         // ajax call
 
